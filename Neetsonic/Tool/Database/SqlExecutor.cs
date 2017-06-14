@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Neetsonic
+namespace Neetsonic.Tool.Database
 {
-    public class Class1
+    class SqlExecutor
     {
-		
     }
 }
