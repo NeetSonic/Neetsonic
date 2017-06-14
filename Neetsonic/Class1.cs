@@ -8,5 +8,6 @@ namespace Neetsonic
 {
     public class Class1
     {
+		
     }
 }
