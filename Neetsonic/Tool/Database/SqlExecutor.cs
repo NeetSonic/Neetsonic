@@ -8,5 +8,6 @@ namespace Neetsonic.Tool.Database
 {
     class SqlExecutor
     {
+        public void Fun(){}
     }
 }
