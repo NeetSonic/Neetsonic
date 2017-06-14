@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Neetsonic.Tool.Database
+﻿namespace Neetsonic.Tool.Database
 {
-    class SqlExecutor
+    internal class SqlExecutor
     {
+        public void Fun() { }
     }
 }
