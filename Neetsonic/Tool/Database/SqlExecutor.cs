@@ -6,7 +6,7 @@ namespace Neetsonic.Tool.Database
     {
         public void Fun()
         {
-            MessageBox.Show(@"撒333旦");
+            MessageBox.Show(@"撒旦");
         }
     }
 }
