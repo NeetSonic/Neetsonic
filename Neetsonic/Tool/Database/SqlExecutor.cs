@@ -71,7 +71,7 @@ namespace Neetsonic.Tool.Database
         {
             try
             {
-                using(SqlConnection conn = new SqlConnection())
+                using(SqlConnection conn = new SqlConnection(connection))
                 {
                     conn.Open();
                 }

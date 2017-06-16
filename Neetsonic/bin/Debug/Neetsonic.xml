@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Neetsonic</name>
+    </assembly>
+    <members>
+        <member name="T:Neetsonic.Tool.Database.SqlExecutor">
+            <summary>
+            Sql执行器
+            Neetsonic
+            2017.6.15
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Tool.Database.SqlExecutor.ExecuteNonQuery(System.String,System.String)">
+            <summary>
+            执行不带返回值的Sql语句
+            </summary>
+            <param name="connection">数据库连接字符串</param>
+            <param name="sql">要执行的sql语句</param>
+        </member>
+        <member name="M:Neetsonic.Tool.Database.SqlExecutor.ExecuteScalar(System.String,System.String)">
+            <summary>
+            执行单一返回值的Sql语句
+            </summary>
+            <param name="connection">数据库连接字符串</param>
+            <param name="sql">要执行的sql语句</param>
+            <returns>单一返回值</returns>
+        </member>
+        <member name="M:Neetsonic.Tool.Database.SqlExecutor.ExecuteQuery(System.String,System.String)">
+            <summary>
+            执行带有返回值的Sql语句
+            </summary>
+            <param name="connection">数据库连接字符串</param>
+            <param name="sql">要执行的sql语句</param>
+            <returns>返回值</returns>
+        </member>
+        <member name="M:Neetsonic.Tool.Database.SqlExecutor.ConnectSucceed(System.String)">
+            <summary>
+            测试数据库连接是否成功
+            </summary>
+            <param name="connection">数据库连接字符串</param>
+            <returns>连接是否成功</returns>
+        </member>
+    </members>
+</doc>
