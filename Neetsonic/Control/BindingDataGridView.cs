@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
-using Neetsonic.Tool;
 
 namespace Neetsonic.Control
 {
@@ -17,14 +17,20 @@ namespace Neetsonic.Control
         /// <summary>
         /// 构造器
         /// </summary>
-        public BindingDataGridView()
+        protected BindingDataGridView()
         {
             InitializeComponent();
             Init();
         }
 
+        /// <summary>
+        /// 用于更新列表中元素的委托
+        /// </summary>
+        /// <param name="element">要更新的元素</param>
+        public delegate void UpdateElementEvent(ref T element);
+
         private DataStructure.BindingList<T> _dataList; // 绑定的数据源列表
-        private readonly List<DataGridViewColumn> LinkColumns = new List<DataGridViewColumn>(); // 链接类型的列
+        private readonly List<string> LinkColumns = new List<string>(); // 链接类型的列
 
         /// <summary>
         /// 对于指定为LinkColumn的单元格内容，将其视为网址，点击后自动在浏览器打开
@@ -38,6 +44,11 @@ namespace Neetsonic.Control
         /// 第一个选中的项
         /// </summary>
         public T SelectedItem => SelectedRows.Count > 0 ? DataList[SelectedRows[0].Index] : default(T);
+
+        /// <summary>
+        /// 第一个选中的项索引
+        /// </summary>
+        public int SelectedItemIndex => SelectedRows.Count > 0 ? SelectedRows[0].Index : -1;
 
         /// <summary>
         /// 绑定的数据源列表
@@ -58,26 +69,24 @@ namespace Neetsonic.Control
                 DataSource = _dataList;
 
                 // 排序
-                if(null != sortedColumn)
-                {
-                    Sort(sortedColumn, Convertor.SortOrderToListSortDirection(oldSortOrder));
-                }
+                Sort(sortedColumn, oldSortOrder);
 
                 // 还原选中项
-                if(default(T).Equals(oldSelectedItem))
+                Type type = typeof(T);
+                if(type.IsValueType)
                 {
-                    for(int idx = 0; idx < DataList.Count; idx++)
+                    if(default(T).Equals(oldSelectedItem)) return;
+                }
+                else if(null == oldSelectedItem) return;
+                int idx = DataList.FindItemIndex(item => IsTheSameItem(item, oldSelectedItem));
+                if(-1 != idx)
+                {
+                    ClearSelection();
+                    DataGridViewRow theRow = Rows[idx];
+                    theRow.Selected = true;
+                    if(!theRow.Displayed)
                     {
-                        if(IsTheSameItem(DataList[idx], oldSelectedItem))
-                        {
-                            DataGridViewRow theRow = Rows[idx];
-                            theRow.Selected = true;
-                            if(!theRow.Displayed)
-                            {
-                                FirstDisplayedScrollingRowIndex = idx;
-                            }
-                            break;
-                        }
+                        FirstDisplayedScrollingRowIndex = idx;
                     }
                 }
             }
@@ -110,7 +119,7 @@ namespace Neetsonic.Control
             //
             CellContentClick += (sender, args) =>
             {
-                if(OpenLinkInBrowser && -1 != args.RowIndex && LinkColumns.Contains(Columns[args.ColumnIndex]))
+                if(OpenLinkInBrowser && -1 != args.RowIndex && LinkColumns.Contains(Columns[args.ColumnIndex].Name))
                 {
                     Process.Start(@"explorer.exe", CurrentCell.Value?.ToString());
                 }
@@ -132,7 +141,7 @@ namespace Neetsonic.Control
         /// 设置列
         /// </summary>
         /// <param name="columns">列信息集合</param>
-        public void SetColumns(IEnumerable<BindingDataGridViewColumn> columns)
+        protected void SetColumns(IEnumerable<BindingDataGridViewColumn> columns)
         {
             Columns.Clear();
             LinkColumns.Clear();
@@ -147,9 +156,125 @@ namespace Neetsonic.Control
                 Columns.Add(col);
                 if(typeof(DataGridViewLinkColumn) == column.Type)
                 {
-                    LinkColumns.Add(col);
+                    LinkColumns.Add(col.Name);
                 }
             }
+        }
+
+        /// <summary>
+        /// 重新按照当前设置排序并刷新显示，且定位到刷新前选中的那一行
+        /// </summary>
+        public override void Refresh()
+        {
+            // 先确定原来选中的项，按当前排序规则重排
+            T oldSelectedItem = SelectedItem;
+            if(!Sort(SortedColumn, SortOrder)) return;
+            Type type = typeof(T);
+            if(type.IsValueType)
+            {
+                if(default(T).Equals(oldSelectedItem)) return;
+            }
+            else if(null == oldSelectedItem) return;
+            int idx = DataList.FindItemIndex(item => item.Equals(oldSelectedItem));
+            if(-1 != idx)
+            {
+                ClearSelection();
+                DataGridViewRow theRow = Rows[idx];
+                theRow.Selected = true;
+                if(!theRow.Displayed)
+                {
+                    FirstDisplayedScrollingRowIndex = idx;
+                }
+            }
+            base.Refresh();
+        }
+
+        /// <summary>
+        /// 添加新项，并自动按照当前排序规则整理列表，之后定位到该项
+        /// </summary>
+        /// <param name="t">要添加的新项</param>
+        public void AddItem(T t)
+        {
+            DataList.Add(t);
+            ClearSelection();
+            Rows[Rows.Count - 1].Selected = true;
+            Refresh();
+        }
+
+        /// <summary>
+        /// 移除当前选中元素
+        /// </summary>
+        public void RemoveCurrSelectedItem()
+        {
+            RemoveItemAt(SelectedItemIndex);
+        }
+
+        /// <summary>
+        /// 移除项，并自动调整列宽
+        /// </summary>
+        /// <param name="idx">项在列表中的索引</param>
+        public void RemoveItemAt(int idx)
+        {
+            DataList.RemoveAt(idx);
+        }
+
+        /// <summary>
+        /// 按照指定规则排序
+        /// </summary>
+        /// <param name="column">排序的列</param>
+        /// <param name="order">排序顺序</param>
+        /// <returns>排序是否执行</returns>
+        protected virtual bool Sort(DataGridViewColumn column, SortOrder order)
+        {
+            if(null == column)
+            {
+                return false;
+            }
+            ListSortDirection dir;
+            switch(order)
+            {
+                case SortOrder.Ascending:
+                {
+                    dir = ListSortDirection.Ascending;
+                    break;
+                }
+                case SortOrder.Descending:
+                {
+                    dir = ListSortDirection.Descending;
+                    break;
+                }
+                default:
+                {
+                    return false;
+                }
+            }
+            Sort(column, dir);
+            return true;
+        }
+
+        /// <summary>
+        /// 修改当前选中项
+        /// </summary>
+        /// <param name="update">修改动作</param>
+        public void UpdateCurrSelectedItem(UpdateElementEvent update)
+        {
+            UpdateItemAt(SelectedItemIndex, update);
+        }
+
+        /// <summary>
+        /// 修改指定项
+        /// </summary>
+        /// <param name="idx">项在列表中的索引</param>
+        /// <param name="update">修改动作</param>
+        public void UpdateItemAt(int idx, UpdateElementEvent update)
+        {
+            T t = DataList[idx];
+            update(ref t);
+            if(!t.Equals(DataList[idx]))
+            {
+                DataList[idx] = t; // 如果委托中使用new引用了新的对象，则更新成新的对象
+            }
+            Refresh();
         }
     }
 
@@ -176,7 +301,7 @@ namespace Neetsonic.Control
         /// <summary>
         /// 可见
         /// </summary>
-        public bool Visible{ get; set; }
+        public bool Visible{ get; set; } = true;
 
         /// <summary>
         /// 排序模式，默认DataGridViewColumnSortMode.Automatic

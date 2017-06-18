@@ -4,6 +4,219 @@
         <name>Neetsonic</name>
     </assembly>
     <members>
+        <member name="T:Neetsonic.Control.BindingDataGridView`1">
+            <summary>
+            绑定数据源的DataGridView
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Neetsonic.Control.BindingDataGridView`1.#ctor">
+            <summary>
+            构造器
+            </summary>
+        </member>
+        <member name="T:Neetsonic.Control.BindingDataGridView`1.UpdateElementEvent">
+            <summary>
+            用于更新列表中元素的委托
+            </summary>
+            <param name="element">要更新的元素</param>
+        </member>
+        <member name="P:Neetsonic.Control.BindingDataGridView`1.OpenLinkInBrowser">
+            <summary>
+            对于指定为LinkColumn的单元格内容，将其视为网址，点击后自动在浏览器打开
+            </summary>
+        </member>
+        <member name="P:Neetsonic.Control.BindingDataGridView`1.SelectedItem">
+            <summary>
+            第一个选中的项
+            </summary>
+        </member>
+        <member name="P:Neetsonic.Control.BindingDataGridView`1.SelectedItemIndex">
+            <summary>
+            第一个选中的项索引
+            </summary>
+        </member>
+        <member name="P:Neetsonic.Control.BindingDataGridView`1.DataList">
+            <summary>
+            绑定的数据源列表
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Control.BindingDataGridView`1.Init">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Control.BindingDataGridView`1.IsTheSameItem(`0,`0)">
+            <summary>
+            判断两个项是否是同样的，用于重载绑定数据后勾选之前以前勾选中的项
+            </summary>
+            <param name="t1">比较项1</param>
+            <param name="t2">比较项2</param>
+            <returns>是否是相同项</returns>
+        </member>
+        <member name="M:Neetsonic.Control.BindingDataGridView`1.SetColumns(System.Collections.Generic.IEnumerable{Neetsonic.Control.BindingDataGridViewColumn})">
+            <summary>
+            设置列
+            </summary>
+            <param name="columns">列信息集合</param>
+        </member>
+        <member name="M:Neetsonic.Control.BindingDataGridView`1.Refresh">
+            <summary>
+            重新按照当前设置排序并刷新显示，且定位到刷新前选中的那一行
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Control.BindingDataGridView`1.AddItem(`0)">
+            <summary>
+            添加新项，并自动按照当前排序规则整理列表，之后定位到该项
+            </summary>
+            <param name="t">要添加的新项</param>
+        </member>
+        <member name="M:Neetsonic.Control.BindingDataGridView`1.RemoveCurrSelectedItem">
+            <summary>
+            移除当前选中元素
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Control.BindingDataGridView`1.RemoveItemAt(System.Int32)">
+            <summary>
+            移除项，并自动调整列宽
+            </summary>
+            <param name="idx">项在列表中的索引</param>
+        </member>
+        <member name="M:Neetsonic.Control.BindingDataGridView`1.Sort(System.Windows.Forms.DataGridViewColumn,System.Windows.Forms.SortOrder)">
+            <summary>
+            按照指定规则排序
+            </summary>
+            <param name="column">排序的列</param>
+            <param name="order">排序顺序</param>
+            <returns>排序是否执行</returns>
+        </member>
+        <member name="M:Neetsonic.Control.BindingDataGridView`1.UpdateCurrSelectedItem(Neetsonic.Control.BindingDataGridView{`0}.UpdateElementEvent)">
+            <summary>
+            修改当前选中项
+            </summary>
+            <param name="update">修改动作</param>
+        </member>
+        <member name="M:Neetsonic.Control.BindingDataGridView`1.UpdateItemAt(System.Int32,Neetsonic.Control.BindingDataGridView{`0}.UpdateElementEvent)">
+            <summary>
+            修改指定项
+            </summary>
+            <param name="idx">项在列表中的索引</param>
+            <param name="update">修改动作</param>
+        </member>
+        <member name="F:Neetsonic.Control.BindingDataGridView`1.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Control.BindingDataGridView`1.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Neetsonic.Control.BindingDataGridView`1.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:Neetsonic.Control.BindingDataGridViewColumn">
+            <summary>
+            绑定数据源的DataGridView的列
+            </summary>
+        </member>
+        <member name="P:Neetsonic.Control.BindingDataGridViewColumn.Type">
+            <summary>
+            数据类型，默认DataGridViewTextBoxColumn
+            </summary>
+        </member>
+        <member name="P:Neetsonic.Control.BindingDataGridViewColumn.NameAndDataPropertyName">
+            <summary>
+            列名及绑定数据属性名
+            </summary>
+        </member>
+        <member name="P:Neetsonic.Control.BindingDataGridViewColumn.HeaderText">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:Neetsonic.Control.BindingDataGridViewColumn.Visible">
+            <summary>
+            可见
+            </summary>
+        </member>
+        <member name="P:Neetsonic.Control.BindingDataGridViewColumn.SortMode">
+            <summary>
+            排序模式，默认DataGridViewColumnSortMode.Automatic
+            </summary>
+        </member>
+        <member name="T:Neetsonic.DataStructure.BindingList`1">
+            <summary>
+            支持排序、查找等功能的绑定列表
+            Neetsonic
+            2017.6.16
+            </summary>
+            <typeparam name="T">列表元素类型</typeparam>
+        </member>
+        <member name="M:Neetsonic.DataStructure.BindingList`1.#ctor">
+            <summary>
+            构造器
+            </summary>
+        </member>
+        <member name="M:Neetsonic.DataStructure.BindingList`1.#ctor(System.Collections.Generic.IList{`0})">
+            <summary>
+            构造器
+            </summary>
+            <param name="lst">构造列表</param>
+        </member>
+        <member name="P:Neetsonic.DataStructure.BindingList`1.SupportsSortingCore">
+            <summary>
+            绑定的控件调用此方法判断列表是否支持排序
+            </summary>
+        </member>
+        <member name="M:Neetsonic.DataStructure.BindingList`1.Init">
+            <summary>
+            初始化工作
+            </summary>
+        </member>
+        <member name="M:Neetsonic.DataStructure.BindingList`1.ApplySortCore(System.ComponentModel.PropertyDescriptor,System.ComponentModel.ListSortDirection)">
+            <summary>
+            绑定的控件调用此方法进行列表的排序，之后自动重新绑定回控件
+            </summary>
+            <param name="prop">要排序的属性</param>
+            <param name="direction">排序顺序</param>
+        </member>
+        <member name="M:Neetsonic.DataStructure.BindingList`1.Cmp(System.ComponentModel.PropertyDescriptor,System.ComponentModel.ListSortDirection,`0,`0)">
+            <summary>
+            用于排序时比较两个元素的方法
+            </summary>
+            <param name="property">要排序的属性</param>
+            <param name="direction">排序顺序</param>
+            <param name="x">用于比较的元素</param>
+            <param name="y">用于比较的元素</param>
+            <returns>比较结果</returns>
+        </member>
+        <member name="M:Neetsonic.DataStructure.BindingList`1.FindItemIndex(System.Predicate{`0})">
+            <summary>
+            查找第一个符合要求的元素索引
+            </summary>
+            <param name="match">需要满足的要求</param>
+            <returns>第一个符合要求的元素索引，不存在则返回-1</returns>
+        </member>
+        <member name="T:Neetsonic.Tool.Convertor">
+            <summary>
+            通用转换器
+            Neetsonic
+            2017.6.18
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Tool.Convertor.SortOrderToListSortDirection(System.Windows.Forms.SortOrder)">
+            <summary>
+            将SortOrder转换为等价的ListSortDirection
+            </summary>
+            <param name="order">SortOrder对象</param>
+            <returns>等价的ListSortDirection对象</returns>
+        </member>
         <member name="T:Neetsonic.Tool.Database.SqlExecutor">
             <summary>
             Sql执行器
