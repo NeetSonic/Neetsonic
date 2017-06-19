@@ -15,12 +15,17 @@ namespace Neetsonic.Tool.Database
         /// </summary>
         /// <param name="connection">数据库连接字符串</param>
         /// <param name="sql">要执行的sql语句</param>
-        public static void ExecuteNonQuery(string connection, string sql)
+        /// <param name="parameters">参数集</param>
+        public static void ExecuteNonQuery(string connection, string sql,  SqlParameter[] parameters)
         {
             using(SqlConnection conn = new SqlConnection(connection))
             {
                 SqlCommand cmd = conn.CreateCommand();
                 cmd.CommandText = sql;
+                if(null != parameters)
+                {
+                    cmd.Parameters.AddRange(parameters);
+                }
                 cmd.ExecuteNonQuery();
             }
         }
@@ -30,13 +35,18 @@ namespace Neetsonic.Tool.Database
         /// </summary>
         /// <param name="connection">数据库连接字符串</param>
         /// <param name="sql">要执行的sql语句</param>
+        /// <param name="parameters">参数集</param>
         /// <returns>单一返回值</returns>
-        public static object ExecuteScalar(string connection, string sql)
+        public static object ExecuteScalar(string connection, string sql, SqlParameter[] parameters)
         {
             using(SqlConnection conn = new SqlConnection(connection))
             {
                 SqlCommand cmd = conn.CreateCommand();
                 cmd.CommandText = sql;
+                if(null != parameters)
+                {
+                    cmd.Parameters.AddRange(parameters);
+                }
                 return cmd.ExecuteScalar();
             }
         }
@@ -46,13 +56,18 @@ namespace Neetsonic.Tool.Database
         /// </summary>
         /// <param name="connection">数据库连接字符串</param>
         /// <param name="sql">要执行的sql语句</param>
+        /// <param name="parameters">参数集</param>
         /// <returns>返回值</returns>
-        public static DataSet ExecuteQuery(string connection, string sql)
+        public static DataSet ExecuteQuery(string connection, string sql, SqlParameter[] parameters)
         {
             using(SqlConnection conn = new SqlConnection(connection))
             {
                 SqlCommand cmd = conn.CreateCommand();
                 cmd.CommandText = sql;
+                if(null != parameters)
+                {
+                    cmd.Parameters.AddRange(parameters);
+                }
                 using(SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                 {
                     DataSet dataSet = new DataSet();

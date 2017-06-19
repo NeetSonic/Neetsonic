@@ -103,6 +103,7 @@ namespace Neetsonic.Control
             DataList = null;
             AllowUserToResizeRows = AllowUserToDeleteRows = AllowUserToAddRows = false;
             AllowUserToResizeColumns = AllowUserToOrderColumns = false;
+            AutoGenerateColumns = false;
             RowHeadersVisible = false;
             MultiSelect = false;
             ReadOnly = true;
