@@ -20,6 +20,7 @@ namespace Neetsonic.Tool.Database
         {
             using(SqlConnection conn = new SqlConnection(connection))
             {
+                conn.Open();
                 SqlCommand cmd = conn.CreateCommand();
                 cmd.CommandText = sql;
                 if(null != parameters)
@@ -41,6 +42,7 @@ namespace Neetsonic.Tool.Database
         {
             using(SqlConnection conn = new SqlConnection(connection))
             {
+                conn.Open();
                 SqlCommand cmd = conn.CreateCommand();
                 cmd.CommandText = sql;
                 if(null != parameters)
@@ -62,6 +64,7 @@ namespace Neetsonic.Tool.Database
         {
             using(SqlConnection conn = new SqlConnection(connection))
             {
+                conn.Open();
                 SqlCommand cmd = conn.CreateCommand();
                 cmd.CommandText = sql;
                 if(null != parameters)

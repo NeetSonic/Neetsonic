@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Neetsonic.Control
@@ -21,6 +20,17 @@ namespace Neetsonic.Control
         {
             InitializeComponent();
             Init();
+            BindEvent();
+        }
+        private void BindEvent()
+        {
+            CellContentClick += (sender, args) =>
+            {
+                if(OpenLinkInBrowser && -1 != args.RowIndex && LinkColumns.Contains(Columns[args.ColumnIndex].Name))
+                {
+                    Process.Start(@"explorer.exe", CurrentCell.Value?.ToString());
+                }
+            };
         }
 
         /// <summary>
@@ -97,9 +107,6 @@ namespace Neetsonic.Control
         /// </summary>
         private void Init()
         {
-            //
-            // 属性
-            //
             DataList = null;
             AllowUserToResizeRows = AllowUserToDeleteRows = AllowUserToAddRows = false;
             AllowUserToResizeColumns = AllowUserToOrderColumns = false;
@@ -115,16 +122,6 @@ namespace Neetsonic.Control
             RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithAutoHeaderText;
             SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
-            //
-            // 事件
-            //
-            CellContentClick += (sender, args) =>
-            {
-                if(OpenLinkInBrowser && -1 != args.RowIndex && LinkColumns.Contains(Columns[args.ColumnIndex].Name))
-                {
-                    Process.Start(@"explorer.exe", CurrentCell.Value?.ToString());
-                }
-            };
         }
 
         /// <summary>
@@ -142,7 +139,7 @@ namespace Neetsonic.Control
         /// 设置列
         /// </summary>
         /// <param name="columns">列信息集合</param>
-        protected void SetColumns(IEnumerable<BindingDataGridViewColumn> columns)
+        public void SetColumns(IEnumerable<BindingDataGridViewColumn> columns)
         {
             Columns.Clear();
             LinkColumns.Clear();
@@ -168,25 +165,7 @@ namespace Neetsonic.Control
         public override void Refresh()
         {
             // 先确定原来选中的项，按当前排序规则重排
-            T oldSelectedItem = SelectedItem;
-            if(!Sort(SortedColumn, SortOrder)) return;
-            Type type = typeof(T);
-            if(type.IsValueType)
-            {
-                if(default(T).Equals(oldSelectedItem)) return;
-            }
-            else if(null == oldSelectedItem) return;
-            int idx = DataList.FindItemIndex(item => item.Equals(oldSelectedItem));
-            if(-1 != idx)
-            {
-                ClearSelection();
-                DataGridViewRow theRow = Rows[idx];
-                theRow.Selected = true;
-                if(!theRow.Displayed)
-                {
-                    FirstDisplayedScrollingRowIndex = idx;
-                }
-            }
+            Sort(SortedColumn, SortOrder);
             base.Refresh();
         }
 
@@ -225,11 +204,11 @@ namespace Neetsonic.Control
         /// <param name="column">排序的列</param>
         /// <param name="order">排序顺序</param>
         /// <returns>排序是否执行</returns>
-        protected virtual bool Sort(DataGridViewColumn column, SortOrder order)
+        protected void Sort(DataGridViewColumn column, SortOrder order)
         {
             if(null == column)
             {
-                return false;
+                return;
             }
             ListSortDirection dir;
             switch(order)
@@ -246,11 +225,39 @@ namespace Neetsonic.Control
                 }
                 default:
                 {
-                    return false;
+                    return;
                 }
             }
             Sort(column, dir);
-            return true;
+        }
+
+        /// <inheritdoc />
+        public override void Sort(DataGridViewColumn dataGridViewColumn, ListSortDirection direction)
+        {
+            // 先确定原来选中的项，按当前排序规则重排
+            T oldSelectedItem = SelectedItem;
+    
+            base.Sort(dataGridViewColumn, direction);
+
+            Type type = typeof(T);
+            if(type.IsValueType)
+            {
+                if(default(T).Equals(oldSelectedItem))
+                    return;
+            }
+            else if(null == oldSelectedItem)
+                return;
+            int idx = DataList.FindItemIndex(item => item.Equals(oldSelectedItem));
+            if(-1 != idx)
+            {
+                ClearSelection();
+                DataGridViewRow theRow = Rows[idx];
+                theRow.Selected = true;
+                if(!theRow.Displayed)
+                {
+                    FirstDisplayedScrollingRowIndex = idx;
+                }
+            }
         }
 
         /// <summary>

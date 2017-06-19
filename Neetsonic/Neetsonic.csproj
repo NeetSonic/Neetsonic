@@ -49,6 +49,12 @@
     <Compile Include="Control\BindingDataGridView.Designer.cs">
       <DependentUpon>BindingDataGridView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Control\TextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\TextBox.Designer.cs">
+      <DependentUpon>TextBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataStructure\BindingList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tool\Convertor.cs" />

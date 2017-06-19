@@ -90,6 +90,9 @@
             <param name="order">排序顺序</param>
             <returns>排序是否执行</returns>
         </member>
+        <member name="M:Neetsonic.Control.BindingDataGridView`1.Sort(System.Windows.Forms.DataGridViewColumn,System.ComponentModel.ListSortDirection)">
+            <inheritdoc />
+        </member>
         <member name="M:Neetsonic.Control.BindingDataGridView`1.UpdateCurrSelectedItem(Neetsonic.Control.BindingDataGridView{`0}.UpdateElementEvent)">
             <summary>
             修改当前选中项
@@ -148,6 +151,38 @@
         <member name="P:Neetsonic.Control.BindingDataGridViewColumn.SortMode">
             <summary>
             排序模式，默认DataGridViewColumnSortMode.Automatic
+            </summary>
+        </member>
+        <member name="T:Neetsonic.Control.TextBox">
+            <summary>
+            文本框
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Control.TextBox.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Control.TextBox.Highlight">
+            <summary>
+            高亮文本
+            </summary>
+        </member>
+        <member name="F:Neetsonic.Control.TextBox.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Control.TextBox.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Neetsonic.Control.TextBox.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
             </summary>
         </member>
         <member name="T:Neetsonic.DataStructure.BindingList`1">
