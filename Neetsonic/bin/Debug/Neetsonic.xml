@@ -46,6 +46,11 @@
             初始化
             </summary>
         </member>
+        <member name="M:Neetsonic.Control.BindingDataGridView`1.BindEvent">
+            <summary>
+            绑定事件
+            </summary>
+        </member>
         <member name="M:Neetsonic.Control.BindingDataGridView`1.IsTheSameItem(`0,`0)">
             <summary>
             判断两个项是否是同样的，用于重载绑定数据后勾选之前以前勾选中的项
@@ -81,6 +86,13 @@
             移除项，并自动调整列宽
             </summary>
             <param name="idx">项在列表中的索引</param>
+        </member>
+        <member name="M:Neetsonic.Control.BindingDataGridView`1.IsDefualtValue(`0)">
+            <summary>
+            检测对象是否为其类型默认值
+            </summary>
+            <param name="t">对象</param>
+            <returns>是否为其类型默认值</returns>
         </member>
         <member name="M:Neetsonic.Control.BindingDataGridView`1.Sort(System.Windows.Forms.DataGridViewColumn,System.Windows.Forms.SortOrder)">
             <summary>
@@ -291,6 +303,37 @@
             </summary>
             <param name="connection">数据库连接字符串</param>
             <returns>连接是否成功</returns>
+        </member>
+        <member name="T:Neetsonic.Tool.MessageBoxEx">
+            <summary>
+            消息提示框
+            Neetsonic
+            2017.6.20
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Tool.MessageBoxEx.Error(System.String)">
+            <summary>
+            错误提示
+            </summary>
+            <param name="text">提示文本</param>
+        </member>
+        <member name="M:Neetsonic.Tool.MessageBoxEx.Info(System.String)">
+            <summary>
+            消息提示
+            </summary>
+            <param name="text">提示文本</param>
+        </member>
+        <member name="M:Neetsonic.Tool.MessageBoxEx.Warning(System.String)">
+            <summary>
+            警告提示
+            </summary>
+            <param name="text">提示文本</param>
+        </member>
+        <member name="M:Neetsonic.Tool.MessageBoxEx.Confirm(System.String)">
+            <summary>
+            请求确认提示
+            </summary>
+            <param name="text">提示文本</param>
         </member>
     </members>
 </doc>

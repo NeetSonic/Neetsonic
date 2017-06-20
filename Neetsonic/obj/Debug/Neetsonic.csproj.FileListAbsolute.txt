@@ -3,3 +3,4 @@ D:\Dev\Neetsonic\Neetsonic\bin\Debug\Neetsonic.dll
 D:\Dev\Neetsonic\Neetsonic\bin\Debug\Neetsonic.pdb
 D:\Dev\Neetsonic\Neetsonic\obj\Debug\Neetsonic.dll
 D:\Dev\Neetsonic\Neetsonic\obj\Debug\Neetsonic.pdb
+D:\Dev\Neetsonic\Neetsonic\obj\Debug\Neetsonic.csprojResolveAssemblyReference.cache

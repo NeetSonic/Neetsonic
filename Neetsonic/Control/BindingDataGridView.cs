@@ -22,16 +22,6 @@ namespace Neetsonic.Control
             Init();
             BindEvent();
         }
-        private void BindEvent()
-        {
-            CellContentClick += (sender, args) =>
-            {
-                if(OpenLinkInBrowser && -1 != args.RowIndex && LinkColumns.Contains(Columns[args.ColumnIndex].Name))
-                {
-                    Process.Start(@"explorer.exe", CurrentCell.Value?.ToString());
-                }
-            };
-        }
 
         /// <summary>
         /// 用于更新列表中元素的委托
@@ -82,12 +72,7 @@ namespace Neetsonic.Control
                 Sort(sortedColumn, oldSortOrder);
 
                 // 还原选中项
-                Type type = typeof(T);
-                if(type.IsValueType)
-                {
-                    if(default(T).Equals(oldSelectedItem)) return;
-                }
-                else if(null == oldSelectedItem) return;
+                if(IsDefualtValue(oldSelectedItem)) return;
                 int idx = DataList.FindItemIndex(item => IsTheSameItem(item, oldSelectedItem));
                 if(-1 != idx)
                 {
@@ -122,6 +107,34 @@ namespace Neetsonic.Control
             RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithAutoHeaderText;
             SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
+        }
+
+        /// <summary>
+        /// 绑定事件
+        /// </summary>
+        private void BindEvent()
+        {
+            // 支持点击打开网址
+            CellContentClick += (sender, args) =>
+            {
+                if(OpenLinkInBrowser && -1 != args.RowIndex && LinkColumns.Contains(Columns[args.ColumnIndex].Name))
+                {
+                    Process.Start(@"explorer.exe", CurrentCell.Value?.ToString()); 
+                }
+            };
+            // 滚动时关闭打开的右键菜单
+            Scroll += (sender, args) =>
+            {
+                ContextMenuStrip?.Close(); 
+            };
+            // 右键选中项
+            CellMouseDown += (sender, e) =>
+            {
+                if(MouseButtons.Right == e.Button && -1 != e.RowIndex && -1 != e.ColumnIndex)
+                {
+                    Rows[e.RowIndex].Selected = true;
+                }
+            };
         }
 
         /// <summary>
@@ -196,6 +209,21 @@ namespace Neetsonic.Control
         public void RemoveItemAt(int idx)
         {
             DataList.RemoveAt(idx);
+            if(DataList.Count > 0)
+            {
+                Rows[0].Selected = true;
+                Refresh();
+            }
+        }
+
+        /// <summary>
+        /// 检测对象是否为其类型默认值
+        /// </summary>
+        /// <param name="t">对象</param>
+        /// <returns>是否为其类型默认值</returns>
+        private static bool IsDefualtValue(T t)
+        {
+            return typeof(T).IsValueType ? default(T).Equals(t) : null == t;
         }
 
         /// <summary>
@@ -206,29 +234,30 @@ namespace Neetsonic.Control
         /// <returns>排序是否执行</returns>
         protected void Sort(DataGridViewColumn column, SortOrder order)
         {
-            if(null == column)
+            if(null != column)
             {
-                return;
-            }
-            ListSortDirection dir;
-            switch(order)
-            {
-                case SortOrder.Ascending:
+                switch(order)
                 {
-                    dir = ListSortDirection.Ascending;
-                    break;
-                }
-                case SortOrder.Descending:
-                {
-                    dir = ListSortDirection.Descending;
-                    break;
-                }
-                default:
-                {
-                    return;
+                    case SortOrder.Ascending:
+                    {
+                        Sort(column, ListSortDirection.Ascending);
+                        return;
+                    }
+                    case SortOrder.Descending:
+                    {
+                        Sort(column, ListSortDirection.Descending);
+                        return;
+                    }
                 }
             }
-            Sort(column, dir);
+            // 未排序，但依然要定位显示到选中项（例如AddItem操作）
+            T oldSelectedItem = SelectedItem;
+            if(IsDefualtValue(oldSelectedItem)) return;
+            DataGridViewRow selectedRow = SelectedRows[0];
+            if(!(selectedRow?.Displayed ?? true))
+            {
+                FirstDisplayedScrollingRowIndex = selectedRow.Index;
+            }
         }
 
         /// <inheritdoc />
@@ -236,17 +265,8 @@ namespace Neetsonic.Control
         {
             // 先确定原来选中的项，按当前排序规则重排
             T oldSelectedItem = SelectedItem;
-    
             base.Sort(dataGridViewColumn, direction);
-
-            Type type = typeof(T);
-            if(type.IsValueType)
-            {
-                if(default(T).Equals(oldSelectedItem))
-                    return;
-            }
-            else if(null == oldSelectedItem)
-                return;
+            if(IsDefualtValue(oldSelectedItem)) return;
             int idx = DataList.FindItemIndex(item => item.Equals(oldSelectedItem));
             if(-1 != idx)
             {
