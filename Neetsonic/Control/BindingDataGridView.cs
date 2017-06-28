@@ -149,10 +149,10 @@ namespace Neetsonic.Control
         }
 
         /// <summary>
-        /// 设置列
+        /// 设置列内部实现
         /// </summary>
         /// <param name="columns">列信息集合</param>
-        public void SetColumns(IEnumerable<BindingDataGridViewColumn> columns)
+        protected void SetColumnsCore(IEnumerable<BindingDataGridViewColumn> columns)
         {
             Columns.Clear();
             LinkColumns.Clear();
