@@ -304,6 +304,34 @@
             <param name="connection">数据库连接字符串</param>
             <returns>连接是否成功</returns>
         </member>
+        <member name="T:Neetsonic.Tool.MediaInfoTool">
+            <summary>
+            媒体文件工具
+            Neetsonic
+            2017.7.12
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Tool.MediaInfoTool.IsImage(System.String)">
+            <summary>
+            判断文件是否为图片文件
+            </summary>
+            <param name="filePath">文件路径</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:Neetsonic.Tool.MediaInfoTool.IsVideo(System.String)">
+            <summary>
+            判断文件是否为视频文件
+            </summary>
+            <param name="filePath">文件路径</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:Neetsonic.Tool.MediaInfoTool.GetVideoRes(System.String)">
+            <summary>
+            获取视频文件的分辨率
+            </summary>
+            <param name="videoFilePath">视频文件路径</param>
+            <returns>分辨率结构</returns>
+        </member>
         <member name="T:Neetsonic.Tool.MessageBoxEx">
             <summary>
             消息提示框
