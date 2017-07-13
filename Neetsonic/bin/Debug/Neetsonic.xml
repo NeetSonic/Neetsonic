@@ -4,11 +4,89 @@
         <name>Neetsonic</name>
     </assembly>
     <members>
+        <member name="T:Neetsonic.Control.BindingCheckedListBox`1">
+            <summary>
+            绑定数据的CheckedListBox
+            Neetsonic
+            2017.7.13
+            </summary>
+            <typeparam name="T">绑定数据类型</typeparam>
+        </member>
+        <member name="M:Neetsonic.Control.BindingCheckedListBox`1.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="F:Neetsonic.Control.BindingCheckedListBox`1._dataList">
+            <summary>
+            绑定的数据列表
+            </summary>
+        </member>
+        <member name="P:Neetsonic.Control.BindingCheckedListBox`1.DataList">
+            <summary>
+            数据源列表
+            </summary>
+        </member>
+        <member name="P:Neetsonic.Control.BindingCheckedListBox`1.DisplayMemberName">
+            <summary>
+            绑定控件后的显示属性
+            </summary>
+        </member>
+        <member name="P:Neetsonic.Control.BindingCheckedListBox`1.ValueMemberName">
+            <summary>
+            绑定控件后的值属性
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Control.BindingCheckedListBox`1.CheckAll">
+            <summary>
+            全选
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Control.BindingCheckedListBox`1.Init">
+            <summary>
+            初始化设置
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Control.BindingCheckedListBox`1.IsTheSameItem(`0,`0)">
+            <summary>
+            判断两个项是否是同样的，用于重载绑定数据后勾选之前以前勾选中的项
+            </summary>
+            <param name="t1">比较项</param>
+            <param name="t2">比较项</param>
+            <returns>是否是相同项</returns>
+        </member>
+        <member name="M:Neetsonic.Control.BindingCheckedListBox`1.ReverseCheck">
+            <summary>
+            反选
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Control.BindingCheckedListBox`1.UncheckAll">
+            <summary>
+            全不选
+            </summary>
+        </member>
+        <member name="F:Neetsonic.Control.BindingCheckedListBox`1.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Control.BindingCheckedListBox`1.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Neetsonic.Control.BindingCheckedListBox`1.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
         <member name="T:Neetsonic.Control.BindingDataGridView`1">
             <summary>
             绑定数据源的DataGridView
             </summary>
-            <typeparam name="T"></typeparam>
+            <typeparam name="T">绑定数据类型</typeparam>
         </member>
         <member name="M:Neetsonic.Control.BindingDataGridView`1.#ctor">
             <summary>
@@ -163,6 +241,46 @@
         <member name="P:Neetsonic.Control.BindingDataGridViewColumn.SortMode">
             <summary>
             排序模式，默认DataGridViewColumnSortMode.Automatic
+            </summary>
+        </member>
+        <member name="T:Neetsonic.Control.LogTextBox">
+            <summary>
+            日志文本框
+            Neetsonic
+            2017.7.13
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Control.LogTextBox.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Control.LogTextBox.Init">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Control.LogTextBox.WriteLog(System.String)">
+            <summary>
+            输出一条日志信息，并自动滚屏到最新添加的信息处
+            </summary>
+            <param name="log">需要输出的信息</param>
+        </member>
+        <member name="F:Neetsonic.Control.LogTextBox.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Control.LogTextBox.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Neetsonic.Control.LogTextBox.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
             </summary>
         </member>
         <member name="T:Neetsonic.Control.TextBox">

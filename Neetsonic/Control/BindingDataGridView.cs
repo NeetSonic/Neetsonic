@@ -10,7 +10,7 @@ namespace Neetsonic.Control
     /// <summary>
     /// 绑定数据源的DataGridView
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">绑定数据类型</typeparam>
     public partial class BindingDataGridView<T> : DataGridView
     {
         /// <summary>

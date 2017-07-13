@@ -46,11 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Control\BindingCheckedListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\BindingCheckedListBox.Designer.cs">
+      <DependentUpon>BindingCheckedListBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Control\BindingDataGridView.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Control\BindingDataGridView.Designer.cs">
       <DependentUpon>BindingDataGridView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\LogTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\LogTextBox.Designer.cs">
+      <DependentUpon>LogTextBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Control\TextBox.cs">
       <SubType>Component</SubType>
