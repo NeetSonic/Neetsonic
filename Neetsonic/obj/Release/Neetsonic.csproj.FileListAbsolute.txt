@@ -1,0 +1,10 @@
+D:\Dev\Neetsonic\Neetsonic\bin\Release\x64\MediaInfo.dll
+D:\Dev\Neetsonic\Neetsonic\bin\Release\x86\MediaInfo.dll
+D:\Dev\Neetsonic\Neetsonic\bin\Release\MediaInfoDotNet.dll.config
+D:\Dev\Neetsonic\Neetsonic\bin\Release\Neetsonic.dll
+D:\Dev\Neetsonic\Neetsonic\bin\Release\Neetsonic.pdb
+D:\Dev\Neetsonic\Neetsonic\bin\Release\MediaInfoDotNet.dll
+D:\Dev\Neetsonic\Neetsonic\bin\Release\MediaInfoDotNet.xml
+D:\Dev\Neetsonic\Neetsonic\obj\Release\Neetsonic.dll
+D:\Dev\Neetsonic\Neetsonic\obj\Release\Neetsonic.pdb
+D:\Dev\Neetsonic\Neetsonic\obj\Release\Neetsonic.csprojResolveAssemblyReference.cache

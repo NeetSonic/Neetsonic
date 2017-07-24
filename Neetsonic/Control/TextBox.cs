@@ -11,6 +11,20 @@
         public TextBox()
         {
             InitializeComponent();
+            BindEvents();
+        }
+
+        private void BindEvents()
+        {
+            // Ctrl + A 全选
+            KeyPress += (sender, e) =>
+            {
+                if (e.KeyChar == '\u0001')
+                {
+                    ((TextBox)sender).SelectAll();
+                    e.Handled = true;
+                }
+            };
         }
 
         /// <summary>

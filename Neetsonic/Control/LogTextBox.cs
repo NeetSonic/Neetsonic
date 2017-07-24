@@ -16,8 +16,8 @@ namespace Neetsonic.Control
         /// </summary>
         public LogTextBox()
         {
-            InitializeComponent();
             Init();
+            InitializeComponent();
         }
 
         /// <summary>
@@ -28,7 +28,6 @@ namespace Neetsonic.Control
             AcceptsReturn = true;
             AcceptsTab = true;
             Multiline = true;
-            ReadOnly = true;
             ScrollBars = ScrollBars.Vertical;
         }
         /// <summary>
