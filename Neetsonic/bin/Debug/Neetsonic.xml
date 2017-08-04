@@ -422,6 +422,17 @@
             <param name="connection">数据库连接字符串</param>
             <returns>连接是否成功</returns>
         </member>
+        <member name="T:Neetsonic.Tool.FileTool">
+            <summary>
+            文件处理工具
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Tool.FileTool.DeleteFiles(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            批量删除文件
+            </summary>
+            <param name="files">文件路径集合</param>
+        </member>
         <member name="T:Neetsonic.Tool.MediaInfoTool">
             <summary>
             媒体文件工具
@@ -480,6 +491,18 @@
             请求确认提示
             </summary>
             <param name="text">提示文本</param>
+        </member>
+        <member name="T:Neetsonic.Tool.SqlParameterEx">
+            <summary>
+            SqlParameter扩展方法
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Tool.SqlParameterEx.NullableString(System.String)">
+            <summary>
+            可以为空的数据库字符串
+            </summary>
+            <param name="str">源字符串</param>
+            <returns>数据库字符串</returns>
         </member>
     </members>
 </doc>
