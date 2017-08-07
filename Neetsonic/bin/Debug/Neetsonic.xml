@@ -461,6 +461,20 @@
             <param name="videoFilePath">视频文件路径</param>
             <returns>分辨率结构</returns>
         </member>
+        <member name="M:Neetsonic.Tool.MediaInfoTool.CreateTempFile(System.String)">
+            <summary>
+            创建临时文件
+            </summary>
+            <param name="filePath">源文件路径</param>
+            <returns>临时文件路径</returns>
+        </member>
+        <member name="M:Neetsonic.Tool.MediaInfoTool.NewMediaFile(System.String)">
+            <summary>
+            使用ANSI编码的临时文件路径来对接MediaFile类构造接口，因为部分UNICODE字符可能导致文件无法识别
+            </summary>
+            <param name="filePath">文件路径</param>
+            <returns>构造的MediaFile对象</returns>
+        </member>
         <member name="T:Neetsonic.Tool.MessageBoxEx">
             <summary>
             消息提示框

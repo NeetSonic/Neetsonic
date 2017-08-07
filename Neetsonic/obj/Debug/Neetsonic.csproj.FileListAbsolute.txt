@@ -9,3 +9,13 @@ D:\Dev\Neetsonic\Neetsonic\bin\Debug\MediaInfoDotNet.dll.config
 D:\Dev\Neetsonic\Neetsonic\bin\Debug\MediaInfoDotNet.dll
 D:\Dev\Neetsonic\Neetsonic\bin\Debug\MediaInfoDotNet.xml
 D:\Dev\Neetsonic\Neetsonic\obj\Debug\Neetsonic.csprojResolveAssemblyReference.cache
+D:\_____Workspace_____\Lhy\dev\Neetsonic\Neetsonic\bin\Debug\x64\MediaInfo.dll
+D:\_____Workspace_____\Lhy\dev\Neetsonic\Neetsonic\bin\Debug\x86\MediaInfo.dll
+D:\_____Workspace_____\Lhy\dev\Neetsonic\Neetsonic\bin\Debug\MediaInfoDotNet.dll.config
+D:\_____Workspace_____\Lhy\dev\Neetsonic\Neetsonic\bin\Debug\Neetsonic.xml
+D:\_____Workspace_____\Lhy\dev\Neetsonic\Neetsonic\bin\Debug\Neetsonic.dll
+D:\_____Workspace_____\Lhy\dev\Neetsonic\Neetsonic\bin\Debug\Neetsonic.pdb
+D:\_____Workspace_____\Lhy\dev\Neetsonic\Neetsonic\bin\Debug\MediaInfoDotNet.xml
+D:\_____Workspace_____\Lhy\dev\Neetsonic\Neetsonic\obj\Debug\Neetsonic.csprojResolveAssemblyReference.cache
+D:\_____Workspace_____\Lhy\dev\Neetsonic\Neetsonic\obj\Debug\Neetsonic.dll
+D:\_____Workspace_____\Lhy\dev\Neetsonic\Neetsonic\obj\Debug\Neetsonic.pdb
