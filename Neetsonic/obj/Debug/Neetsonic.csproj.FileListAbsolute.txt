@@ -19,3 +19,4 @@ D:\_____Workspace_____\Lhy\dev\Neetsonic\Neetsonic\bin\Debug\MediaInfoDotNet.xml
 D:\_____Workspace_____\Lhy\dev\Neetsonic\Neetsonic\obj\Debug\Neetsonic.csprojResolveAssemblyReference.cache
 D:\_____Workspace_____\Lhy\dev\Neetsonic\Neetsonic\obj\Debug\Neetsonic.dll
 D:\_____Workspace_____\Lhy\dev\Neetsonic\Neetsonic\obj\Debug\Neetsonic.pdb
+D:\_____Workspace_____\Lhy\dev\Neetsonic\Neetsonic\bin\Debug\MediaInfoDotNet.dll
