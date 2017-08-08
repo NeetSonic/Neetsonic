@@ -60,7 +60,7 @@ namespace Neetsonic.Tool
         }
         /// <summary>
         /// 使用ANSI编码的临时文件路径来对接MediaFile类构造接口
-        /// 因为部分UNICODE字符可能导致文件无法识别
+        /// 因为部分文件名中的UNICODE字符可能导致文件无法被MediaFile识别
         /// </summary>
         /// <param name="filePath">文件路径</param>
         /// <returns>构造的MediaFile对象</returns>
