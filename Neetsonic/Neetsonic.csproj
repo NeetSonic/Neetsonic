@@ -58,6 +58,12 @@
     <Compile Include="Control\BindingDataGridView.Designer.cs">
       <DependentUpon>BindingDataGridView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Control\CheckedDateTimePicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\CheckedDateTimePicker.Designer.cs">
+      <DependentUpon>CheckedDateTimePicker.cs</DependentUpon>
+    </Compile>
     <Compile Include="Control\LogTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -92,6 +98,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Control\CheckedDateTimePicker.resx">
+      <DependentUpon>CheckedDateTimePicker.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
