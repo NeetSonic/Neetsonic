@@ -21,3 +21,4 @@ D:\_____Workspace_____\Lhy\dev\Neetsonic\Neetsonic\obj\Debug\Neetsonic.pdb
 D:\_____Workspace_____\Lhy\dev\Neetsonic\Neetsonic\bin\Debug\MediaInfoDotNet.dll
 D:\_____Workspace_____\Lhy\dev\Neetsonic\Neetsonic\obj\Debug\Neetsonic.Control.CheckedDateTimePicker.resources
 D:\_____Workspace_____\Lhy\dev\Neetsonic\Neetsonic\obj\Debug\Neetsonic.csproj.GenerateResource.Cache
+D:\_____Workspace_____\Lhy\dev\Neetsonic\Neetsonic\obj\Debug\Neetsonic.csprojResolveAssemblyReference.cache

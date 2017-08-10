@@ -297,6 +297,53 @@
             使用代码编辑器修改此方法的内容。
             </summary>
         </member>
+        <member name="T:Neetsonic.Control.GroupBox">
+            <summary>
+            可定制的GroupBox
+            1.标题字体颜色
+            2.边框颜色
+            Neetsonic
+            2017.8.10
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Control.GroupBox.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="P:Neetsonic.Control.GroupBox.TextColor">
+            <summary>
+            标题字体颜色
+            </summary>
+        </member>
+        <member name="P:Neetsonic.Control.GroupBox.BorderColor">
+            <summary>
+            边框颜色
+            </summary>        
+        </member>
+        <member name="M:Neetsonic.Control.GroupBox.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            重绘UI
+            </summary>
+            <param name="e">绘制参数</param>
+        </member>
+        <member name="F:Neetsonic.Control.GroupBox.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Control.GroupBox.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Neetsonic.Control.GroupBox.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
         <member name="T:Neetsonic.Control.LogTextBox">
             <summary>
             日志文本框

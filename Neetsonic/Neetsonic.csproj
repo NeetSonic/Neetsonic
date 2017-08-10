@@ -64,6 +64,12 @@
     <Compile Include="Control\CheckedDateTimePicker.Designer.cs">
       <DependentUpon>CheckedDateTimePicker.cs</DependentUpon>
     </Compile>
+    <Compile Include="Control\GroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\GroupBox.Designer.cs">
+      <DependentUpon>GroupBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Control\LogTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
