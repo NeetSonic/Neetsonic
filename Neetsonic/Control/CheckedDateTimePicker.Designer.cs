@@ -38,18 +38,17 @@
             this.chk.Dock = System.Windows.Forms.DockStyle.Left;
             this.chk.Location = new System.Drawing.Point(0, 0);
             this.chk.Name = "chk";
-            this.chk.Size = new System.Drawing.Size(80, 26);
+            this.chk.Size = new System.Drawing.Size(15, 26);
             this.chk.TabIndex = 0;
-            this.chk.Text = "content";
             this.chk.UseVisualStyleBackColor = true;
             this.chk.CheckedChanged += new System.EventHandler(this.Chk_CheckedChanged);
             // 
             // date
             // 
             this.date.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.date.Location = new System.Drawing.Point(80, 0);
+            this.date.Location = new System.Drawing.Point(15, 0);
             this.date.Name = "date";
-            this.date.Size = new System.Drawing.Size(145, 26);
+            this.date.Size = new System.Drawing.Size(210, 26);
             this.date.TabIndex = 1;
             // 
             // CheckedDateTimePicker

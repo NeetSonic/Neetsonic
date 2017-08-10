@@ -38,7 +38,7 @@ namespace Neetsonic.Control
         [Browsable(true)]
         [Description("对于指定为LinkColumn的单元格内容，将其视为网址，点击后自动在浏览器打开")]
         [Category("自定义属性")]
-        public bool OpenLinkInBrowser{ get; set; }
+        public bool OpenLinkInBrowser { get; set; }
 
         /// <summary>
         /// 第一个选中的项
@@ -67,6 +67,7 @@ namespace Neetsonic.Control
                 _dataList?.Clear();
                 _dataList = value;
                 DataSource = _dataList;
+                if(null == _dataList) return;
 
                 // 排序
                 Sort(sortedColumn, oldSortOrder);
@@ -119,13 +120,13 @@ namespace Neetsonic.Control
             {
                 if(OpenLinkInBrowser && -1 != args.RowIndex && LinkColumns.Contains(Columns[args.ColumnIndex].Name))
                 {
-                    Process.Start(@"explorer.exe", CurrentCell.Value?.ToString()); 
+                    Process.Start(@"explorer.exe", CurrentCell.Value?.ToString());
                 }
             };
             // 滚动时关闭打开的右键菜单
             Scroll += (sender, args) =>
             {
-                ContextMenuStrip?.Close(); 
+                ContextMenuStrip?.Close();
             };
             // 右键选中项
             CellMouseDown += (sender, e) =>
@@ -252,7 +253,8 @@ namespace Neetsonic.Control
             }
             // 未排序，但依然要定位显示到选中项（例如AddItem操作）
             T oldSelectedItem = SelectedItem;
-            if(IsDefualtValue(oldSelectedItem)) return;
+            if(IsDefualtValue(oldSelectedItem))
+                return;
             DataGridViewRow selectedRow = SelectedRows[0];
             if(!(selectedRow?.Displayed ?? true))
             {
@@ -266,7 +268,8 @@ namespace Neetsonic.Control
             // 先确定原来选中的项，按当前排序规则重排
             T oldSelectedItem = SelectedItem;
             base.Sort(dataGridViewColumn, direction);
-            if(IsDefualtValue(oldSelectedItem)) return;
+            if(IsDefualtValue(oldSelectedItem))
+                return;
             int idx = DataList.FindItemIndex(item => item.Equals(oldSelectedItem));
             if(-1 != idx)
             {
@@ -314,26 +317,26 @@ namespace Neetsonic.Control
         /// <summary>
         /// 数据类型，默认DataGridViewTextBoxColumn
         /// </summary>
-        public Type Type{ get; set; } = typeof(DataGridViewTextBoxColumn);
+        public Type Type { get; set; } = typeof(DataGridViewTextBoxColumn);
 
         /// <summary>
         /// 列名及绑定数据属性名
         /// </summary>
-        public string NameAndDataPropertyName{ get; set; }
+        public string NameAndDataPropertyName { get; set; }
 
         /// <summary>
         /// 标题
         /// </summary>
-        public string HeaderText{ get; set; }
+        public string HeaderText { get; set; }
 
         /// <summary>
         /// 可见
         /// </summary>
-        public bool Visible{ get; set; } = true;
+        public bool Visible { get; set; } = true;
 
         /// <summary>
         /// 排序模式，默认DataGridViewColumnSortMode.Automatic
         /// </summary>
-        public DataGridViewColumnSortMode SortMode{ get; set; } = DataGridViewColumnSortMode.Automatic;
+        public DataGridViewColumnSortMode SortMode { get; set; } = DataGridViewColumnSortMode.Automatic;
     }
 }
