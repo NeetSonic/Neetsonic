@@ -534,6 +534,12 @@
             </summary>
             <param name="files">文件路径集合</param>
         </member>
+        <member name="M:Neetsonic.Tool.FileTool.OpenDirectory(System.String)">
+            <summary>
+            打开文件夹
+            </summary>
+            <param name="dir">文件夹路径</param>
+        </member>
         <member name="T:Neetsonic.Tool.MediaInfoTool">
             <summary>
             媒体文件工具

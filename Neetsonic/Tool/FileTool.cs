@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 
 namespace Neetsonic.Tool
@@ -18,6 +19,14 @@ namespace Neetsonic.Tool
             {
                 File.Delete(file);
             }
+        }
+        /// <summary>
+        /// 打开文件夹
+        /// </summary>
+        /// <param name="dir">文件夹路径</param>
+        public static void OpenDirectory(string dir)
+        {
+            Process.Start(@"Explorer", dir);
         }
     }
 }
