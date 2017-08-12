@@ -38,22 +38,22 @@
             // 
             this.lblName.BackColor = System.Drawing.SystemColors.Info;
             this.lblName.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblName.Location = new System.Drawing.Point(0, 370);
+            this.lblName.Location = new System.Drawing.Point(0, 311);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(300, 30);
+            this.lblName.Size = new System.Drawing.Size(268, 30);
             this.lblName.TabIndex = 2;
-            this.lblName.Text = "Picture1.jpg";
+            this.lblName.Text = "当前没有图片";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblPage
             // 
             this.lblPage.BackColor = System.Drawing.SystemColors.Info;
             this.lblPage.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblPage.Location = new System.Drawing.Point(0, 340);
+            this.lblPage.Location = new System.Drawing.Point(0, 341);
             this.lblPage.Name = "lblPage";
-            this.lblPage.Size = new System.Drawing.Size(300, 30);
+            this.lblPage.Size = new System.Drawing.Size(268, 30);
             this.lblPage.TabIndex = 3;
-            this.lblPage.Text = "1 / 20";
+            this.lblPage.Text = "0 / 0";
             this.lblPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pic
@@ -61,22 +61,25 @@
             this.pic.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pic.Location = new System.Drawing.Point(0, 0);
             this.pic.Name = "pic";
-            this.pic.Size = new System.Drawing.Size(300, 340);
+            this.pic.Size = new System.Drawing.Size(268, 371);
             this.pic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic.TabIndex = 4;
             this.pic.TabStop = false;
+            this.pic.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Pic_MouseClick);
+            this.pic.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Pic_MouseMove);
             // 
             // PictureViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.pic);
             this.Controls.Add(this.lblPage);
             this.Controls.Add(this.lblName);
             this.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "PictureViewer";
-            this.Size = new System.Drawing.Size(300, 400);
+            this.Size = new System.Drawing.Size(268, 371);
             ((System.ComponentModel.ISupportInitialize)(this.pic)).EndInit();
             this.ResumeLayout(false);
 

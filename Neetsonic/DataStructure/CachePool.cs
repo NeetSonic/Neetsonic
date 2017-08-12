@@ -22,7 +22,7 @@ namespace Neetsonic.DataStructure
         /// <summary>
         /// 缓冲区大小
         /// </summary>
-        public int Size { get; }
+        public int Size { get; set; }
 
         /// <summary>
         /// 根据键，获取值

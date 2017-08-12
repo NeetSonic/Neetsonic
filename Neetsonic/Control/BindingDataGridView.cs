@@ -14,6 +14,15 @@ namespace Neetsonic.Control
     public partial class BindingDataGridView<T> : DataGridView
     {
         /// <summary>
+        /// 用于更新列表中元素的委托
+        /// </summary>
+        /// <param name="element">要更新的元素</param>
+        public delegate void UpdateElementEvent(ref T element);
+
+        private readonly List<string> LinkColumns = new List<string>(); // 链接类型的列
+
+        private DataStructure.BindingList<T> _dataList; // 绑定的数据源列表
+        /// <summary>
         /// 构造器
         /// </summary>
         protected BindingDataGridView()
@@ -24,20 +33,9 @@ namespace Neetsonic.Control
         }
 
         /// <summary>
-        /// 用于更新列表中元素的委托
-        /// </summary>
-        /// <param name="element">要更新的元素</param>
-        public delegate void UpdateElementEvent(ref T element);
-
-        private DataStructure.BindingList<T> _dataList; // 绑定的数据源列表
-        private readonly List<string> LinkColumns = new List<string>(); // 链接类型的列
-
-        /// <summary>
         /// 对于指定为LinkColumn的单元格内容，将其视为网址，点击后自动在浏览器打开
         /// </summary>
-        [Browsable(true)]
-        [Description("对于指定为LinkColumn的单元格内容，将其视为网址，点击后自动在浏览器打开")]
-        [Category("自定义属性")]
+        [Browsable(true), Description("对于指定为LinkColumn的单元格内容，将其视为网址，点击后自动在浏览器打开"), Category("自定义属性")]
         public bool OpenLinkInBrowser { get; set; }
 
         /// <summary>
@@ -144,10 +142,7 @@ namespace Neetsonic.Control
         /// <param name="t1">比较项1</param>
         /// <param name="t2">比较项2</param>
         /// <returns>是否是相同项</returns>
-        protected virtual bool IsTheSameItem(T t1, T t2)
-        {
-            return t1.Equals(t2);
-        }
+        protected virtual bool IsTheSameItem(T t1, T t2) => t1.Equals(t2);
 
         /// <summary>
         /// 设置列内部实现
@@ -222,10 +217,7 @@ namespace Neetsonic.Control
         /// </summary>
         /// <param name="t">对象</param>
         /// <returns>是否为其类型默认值</returns>
-        private static bool IsDefualtValue(T t)
-        {
-            return typeof(T).IsValueType ? default(T).Equals(t) : null == t;
-        }
+        private static bool IsDefualtValue(T t) => typeof(T).IsValueType ? default(T).Equals(t) : null == t;
 
         /// <summary>
         /// 按照指定规则排序

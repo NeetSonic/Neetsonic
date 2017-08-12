@@ -12,14 +12,14 @@
             </summary>
             <typeparam name="T">绑定数据类型</typeparam>
         </member>
-        <member name="M:Neetsonic.Control.BindingCheckedListBox`1.#ctor">
-            <summary>
-            构造
-            </summary>
-        </member>
         <member name="F:Neetsonic.Control.BindingCheckedListBox`1._dataList">
             <summary>
             绑定的数据列表
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Control.BindingCheckedListBox`1.#ctor">
+            <summary>
+            构造
             </summary>
         </member>
         <member name="P:Neetsonic.Control.BindingCheckedListBox`1.DataList">
@@ -88,16 +88,16 @@
             </summary>
             <typeparam name="T">绑定数据类型</typeparam>
         </member>
-        <member name="M:Neetsonic.Control.BindingDataGridView`1.#ctor">
-            <summary>
-            构造器
-            </summary>
-        </member>
         <member name="T:Neetsonic.Control.BindingDataGridView`1.UpdateElementEvent">
             <summary>
             用于更新列表中元素的委托
             </summary>
             <param name="element">要更新的元素</param>
+        </member>
+        <member name="M:Neetsonic.Control.BindingDataGridView`1.#ctor">
+            <summary>
+            构造器
+            </summary>
         </member>
         <member name="P:Neetsonic.Control.BindingDataGridView`1.OpenLinkInBrowser">
             <summary>
@@ -384,6 +384,57 @@
             使用代码编辑器修改此方法的内容。
             </summary>
         </member>
+        <member name="T:Neetsonic.Control.PictureViewer">
+            <summary>
+            图片浏览器
+            Neetsonic
+            2017.8.12
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Control.PictureViewer.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="P:Neetsonic.Control.PictureViewer.CacheSize">
+            <summary>
+            缓存大小
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Control.PictureViewer.Clear">
+            <summary>
+            清空
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Control.PictureViewer.AddPicFiles(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            添加图片文件
+            </summary>
+            <param name="files">图片文件路径集</param>
+        </member>
+        <member name="M:Neetsonic.Control.PictureViewer.ChangePicFiles(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            更换图片文件
+            </summary>
+            <param name="files">图片文件路径集</param>
+        </member>
+        <member name="F:Neetsonic.Control.PictureViewer.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Control.PictureViewer.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Neetsonic.Control.PictureViewer.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
         <member name="T:Neetsonic.Control.TextBox">
             <summary>
             文本框
@@ -469,6 +520,52 @@
             <param name="match">需要满足的要求</param>
             <returns>第一个符合要求的元素索引，不存在则返回-1</returns>
         </member>
+        <member name="T:Neetsonic.DataStructure.CachePool`2">
+            <summary>
+            缓存池结构
+            Neetsonic
+            2017.8.11
+            </summary>
+            <typeparam name="TKey">对象的键</typeparam>
+            <typeparam name="TVal">对象的值</typeparam>
+        </member>
+        <member name="M:Neetsonic.DataStructure.CachePool`2.#ctor(System.Int32)">
+            <summary>
+            构造
+            </summary>
+            <param name="size">缓存池大小</param>
+        </member>
+        <member name="P:Neetsonic.DataStructure.CachePool`2.Size">
+            <summary>
+            缓冲区大小
+            </summary>
+        </member>
+        <member name="P:Neetsonic.DataStructure.CachePool`2.Item(`0)">
+            <summary>
+            根据键，获取值
+            </summary>
+            <param name="key">键</param>
+            <returns>值，若不存在返回默认值</returns>
+        </member>
+        <member name="M:Neetsonic.DataStructure.CachePool`2.GetVal(`0)">
+            <summary>
+            根据键，获取值
+            </summary>
+            <param name="key">键</param>
+            <returns>值，若不存在返回默认值</returns>
+        </member>
+        <member name="M:Neetsonic.DataStructure.CachePool`2.Add(`0,`1)">
+            <summary>
+            添加新的键值对象
+            </summary>
+            <param name="key">键</param>
+            <param name="val">值</param>
+        </member>
+        <member name="M:Neetsonic.DataStructure.CachePool`2.Clear">
+            <summary>
+            清空缓存池
+            </summary>
+        </member>
         <member name="T:Neetsonic.Tool.Convertor">
             <summary>
             通用转换器
@@ -539,6 +636,27 @@
             打开文件夹
             </summary>
             <param name="dir">文件夹路径</param>
+        </member>
+        <member name="M:Neetsonic.Tool.FileTool.CreateAndWriteText(System.String,System.String)">
+            <summary>
+            创建文件，并写入文本
+            </summary>
+            <param name="filePath">文件路径</param>
+            <param name="textToWrite">要写入的文本</param>
+        </member>
+        <member name="M:Neetsonic.Tool.FileTool.OpenAndReadAllText(System.String)">
+            <summary>
+            打开文件，并读取所有文本
+            </summary>
+            <param name="filePath">文件路径</param>
+            <returns>文件文本</returns>
+        </member>
+        <member name="M:Neetsonic.Tool.FileTool.ReadImageFile(System.String)">
+            <summary>
+            打开一个图片文件到内存对象（不会持续占用文件）
+            </summary>
+            <param name="filePath">文件路径</param>
+            <returns>图片内存对象</returns>
         </member>
         <member name="T:Neetsonic.Tool.MediaInfoTool">
             <summary>
@@ -613,6 +731,42 @@
             请求确认提示
             </summary>
             <param name="text">提示文本</param>
+        </member>
+        <member name="T:Neetsonic.Tool.SHA1Tool">
+            <summary>
+            SHA1校验码生成工具
+            Neetsonic
+            2017.8.12
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Tool.SHA1Tool.EncryptFile(System.String)">
+            <summary>
+            输出指定文件的SHA1校验码
+            </summary>
+            <param name="filePath">文件路径</param>
+            <returns>文件的SHA1校验码</returns>
+        </member>
+        <member name="M:Neetsonic.Tool.SHA1Tool.EncryptUnicode(System.String)">
+            <summary>
+            输出指定UNICODE字符串的SHA1校验码
+            </summary>
+            <param name="unicodeString">UNICODE字符串</param>
+            <returns>SHA1校验码</returns>
+        </member>
+        <member name="T:Neetsonic.Tool.FileSHA1">
+            <summary>
+            带有SHA1校验码的文件
+            </summary>
+        </member>
+        <member name="P:Neetsonic.Tool.FileSHA1.FilePath">
+            <summary>
+            文件路径
+            </summary>
+        </member>
+        <member name="P:Neetsonic.Tool.FileSHA1.SHA1">
+            <summary>
+            SHA1校验码
+            </summary>
         </member>
         <member name="T:Neetsonic.Tool.SqlParameterEx">
             <summary>

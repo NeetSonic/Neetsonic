@@ -40,6 +40,46 @@ namespace Neetsonic.Control
             }
         }
 
+        /// <summary>
+        /// 勾选提示文本
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Always), Browsable(true), Category("自定义属性"), Description("勾选提示文本"), DefaultValue(null)]
+        public string CheckText
+        {
+            get => chk.Text;
+            set => chk.Text = value;
+        }
+
+        /// <summary>
+        /// 勾选状态
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Always), Browsable(true), Category("自定义属性"), Description("勾选状态"), DefaultValue(false)]
+        public bool Checked
+        {
+            get => chk.Checked;
+            set => chk.Checked = value;
+        }
+
+        /// <summary>
+        /// 日期格式
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Always), Browsable(true), Category("自定义属性"), Description("日期格式"), DefaultValue(DateTimePickerFormat.Long)]
+        public DateTimePickerFormat DateFormat
+        {
+            get => date.Format;
+            set => date.Format = value;
+        }
+
+        /// <summary>
+        /// 自定义日期格式
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Always), Browsable(true), Category("自定义属性"), Description("自定义日期格式"), DefaultValue(null)]
+        public string CustomDateFormat
+        {
+            get => date.CustomFormat;
+            set => date.CustomFormat = value;
+        }
+
         private void InitControl()
         {
             chk.Checked = false;
@@ -51,62 +91,6 @@ namespace Neetsonic.Control
         private void Chk_CheckedChanged(object sender, EventArgs e)
         {
             date.Enabled = chk.Checked;
-        }
-
-        /// <summary>
-        /// 勾选提示文本
-        /// </summary>
-        [EditorBrowsable(EditorBrowsableState.Always)]
-        [Browsable(true)]
-        [Category("自定义属性")]
-        [Description("勾选提示文本")]
-        [DefaultValue(null)]
-        public string CheckText
-        {
-            get => chk.Text;
-            set => chk.Text = value;
-        }
-
-        /// <summary>
-        /// 勾选状态
-        /// </summary>
-        [EditorBrowsable(EditorBrowsableState.Always)]
-        [Browsable(true)]
-        [Category("自定义属性")]
-        [Description("勾选状态")]
-        [DefaultValue(false)]
-        public bool Checked
-        {
-            get => chk.Checked;
-            set => chk.Checked = value;
-        }
-
-        /// <summary>
-        /// 日期格式
-        /// </summary>
-        [EditorBrowsable(EditorBrowsableState.Always)]
-        [Browsable(true)]
-        [Category("自定义属性")]
-        [Description("日期格式")]
-        [DefaultValue(DateTimePickerFormat.Long)]
-        public DateTimePickerFormat DateFormat
-        {
-            get => date.Format;
-            set => date.Format = value;
-        }
-
-        /// <summary>
-        /// 自定义日期格式
-        /// </summary>
-        [EditorBrowsable(EditorBrowsableState.Always)]
-        [Browsable(true)]
-        [Category("自定义属性")]
-        [Description("自定义日期格式")]
-        [DefaultValue(null)]
-        public string CustomDateFormat
-        {
-            get => date.CustomFormat;
-            set => date.CustomFormat = value;
         }
     }
 }

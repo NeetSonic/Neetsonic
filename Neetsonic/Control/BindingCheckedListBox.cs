@@ -14,6 +14,10 @@ namespace Neetsonic.Control
     public partial class BindingCheckedListBox<T> : CheckedListBox
     {
         /// <summary>
+        /// 绑定的数据列表
+        /// </summary>
+        private BindingList<T> _dataList;
+        /// <summary>
         /// 构造
         /// </summary>
         protected BindingCheckedListBox()
@@ -21,11 +25,6 @@ namespace Neetsonic.Control
             InitializeComponent();
             Init();
         }
-
-        /// <summary>
-        /// 绑定的数据列表
-        /// </summary>
-        private BindingList<T> _dataList;
 
         /// <summary>
         /// 数据源列表
@@ -95,10 +94,7 @@ namespace Neetsonic.Control
         /// <param name="t1">比较项</param>
         /// <param name="t2">比较项</param>
         /// <returns>是否是相同项</returns>
-        protected virtual bool IsTheSameItem(T t1, T t2)
-        {
-            return t1.Equals(t2);
-        }
+        protected virtual bool IsTheSameItem(T t1, T t2) => t1.Equals(t2);
         /// <summary>
         /// 反选
         /// </summary>

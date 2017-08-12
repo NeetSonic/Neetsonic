@@ -14,6 +14,9 @@ namespace Neetsonic.Control
     /// </summary>
     public partial class GroupBox : System.Windows.Forms.GroupBox
     {
+        private Color _borderColor = Color.Black;
+
+        private Color _textColor = Color.Black;
         /// <summary>
         /// 构造
         /// </summary>
@@ -22,17 +25,10 @@ namespace Neetsonic.Control
             InitializeComponent();
         }
 
-        private Color _textColor = Color.Black;
-        private Color _borderColor = Color.Black;
-
         /// <summary>
         /// 标题字体颜色
         /// </summary>
-        [EditorBrowsable(EditorBrowsableState.Always)]
-        [Browsable(true)]
-        [Description("标题字体颜色")]
-        [Category("外观")]
-        [DefaultValue(typeof(Color), @"Black")]
+        [EditorBrowsable(EditorBrowsableState.Always), Browsable(true), Description("标题字体颜色"), Category("外观"), DefaultValue(typeof(Color), @"Black")]
         public Color TextColor
         {
             get => _textColor;
@@ -42,11 +38,7 @@ namespace Neetsonic.Control
         /// <summary>
         /// 边框颜色
         /// </summary>        
-        [EditorBrowsable(EditorBrowsableState.Always)]
-        [Browsable(true)]
-        [Description("边框颜色")]
-        [Category("外观")]
-        [DefaultValue(typeof(Color), @"Black")]
+        [EditorBrowsable(EditorBrowsableState.Always), Browsable(true), Description("边框颜色"), Category("外观"), DefaultValue(typeof(Color), @"Black")]
         public Color BorderColor
         {
             get => _borderColor;
