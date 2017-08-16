@@ -16,7 +16,7 @@ namespace Neetsonic.Tool.Database
         /// <param name="connection">数据库连接字符串</param>
         /// <param name="sql">要执行的sql语句</param>
         /// <param name="parameters">参数集</param>
-        public static void ExecuteNonQuery(string connection, string sql,  SqlParameter[] parameters)
+        public static void ExecuteNonQuery(string connection, string sql, SqlParameter[] parameters)
         {
             using(SqlConnection conn = new SqlConnection(connection))
             {

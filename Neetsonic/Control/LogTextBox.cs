@@ -21,16 +21,6 @@ namespace Neetsonic.Control
         }
 
         /// <summary>
-        /// 初始化
-        /// </summary>
-        private void Init()
-        {
-            AcceptsReturn = true;
-            AcceptsTab = true;
-            Multiline = true;
-            ScrollBars = ScrollBars.Vertical;
-        }
-        /// <summary>
         /// 输出一条日志信息，并自动滚屏到最新添加的信息处
         /// </summary>
         /// <param name="log">需要输出的信息</param>
@@ -43,6 +33,16 @@ namespace Neetsonic.Control
               .AppendLine(log);
             AppendText(sb.ToString());
             ScrollToCaret();
+        }
+        /// <summary>
+        /// 初始化
+        /// </summary>
+        private void Init()
+        {
+            AcceptsReturn = true;
+            AcceptsTab = true;
+            Multiline = true;
+            ScrollBars = ScrollBars.Vertical;
         }
     }
 }

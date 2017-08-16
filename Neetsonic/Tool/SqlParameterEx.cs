@@ -14,7 +14,7 @@ namespace Neetsonic.Tool
         /// <returns>数据库字符串</returns>
         public static object NullableString(string str)
         {
-            if(null == str)
+            if(str is null)
             {
                 return DBNull.Value;
             }

@@ -39,7 +39,6 @@ namespace Neetsonic.Control
                 }
             }
         }
-
         /// <summary>
         /// 勾选提示文本
         /// </summary>
@@ -49,7 +48,6 @@ namespace Neetsonic.Control
             get => chk.Text;
             set => chk.Text = value;
         }
-
         /// <summary>
         /// 勾选状态
         /// </summary>
@@ -59,7 +57,6 @@ namespace Neetsonic.Control
             get => chk.Checked;
             set => chk.Checked = value;
         }
-
         /// <summary>
         /// 日期格式
         /// </summary>
@@ -69,7 +66,6 @@ namespace Neetsonic.Control
             get => date.Format;
             set => date.Format = value;
         }
-
         /// <summary>
         /// 自定义日期格式
         /// </summary>
@@ -88,9 +84,6 @@ namespace Neetsonic.Control
             date.Format = DateTimePickerFormat.Long;
         }
 
-        private void Chk_CheckedChanged(object sender, EventArgs e)
-        {
-            date.Enabled = chk.Checked;
-        }
+        private void Chk_CheckedChanged(object sender, EventArgs e) => date.Enabled = chk.Checked;
     }
 }

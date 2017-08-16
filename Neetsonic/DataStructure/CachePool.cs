@@ -12,18 +12,18 @@ namespace Neetsonic.DataStructure
     /// <typeparam name="TVal">对象的值</typeparam>
     public sealed class CachePool<TKey, TVal>
     {
-        private readonly LinkedList<KeyValuePair<TKey, TVal>> _pool = new LinkedList<KeyValuePair<TKey, TVal>>();
         /// <summary>
         /// 构造
         /// </summary>
         /// <param name="size">缓存池大小</param>
         public CachePool(int size) => Size = size;
 
+        private readonly LinkedList<KeyValuePair<TKey, TVal>> _pool = new LinkedList<KeyValuePair<TKey, TVal>>();
+
         /// <summary>
         /// 缓冲区大小
         /// </summary>
         public int Size { get; set; }
-
         /// <summary>
         /// 根据键，获取值
         /// </summary>
@@ -38,11 +38,6 @@ namespace Neetsonic.DataStructure
         /// <returns>值，若不存在返回默认值</returns>
         public TVal GetVal(TKey key)
         {
-            if(key == null)
-            {
-                throw new ArgumentNullException("key");
-            }
-
             LinkedListNode<KeyValuePair<TKey, TVal>> target = null;
             LinkedListNode<KeyValuePair<TKey, TVal>> curr = _pool.First;
             while(curr != _pool.Last && curr != null)

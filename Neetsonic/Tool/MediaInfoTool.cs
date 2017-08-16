@@ -66,7 +66,7 @@ namespace Neetsonic.Tool
         /// <returns>构造的MediaFile对象</returns>
         private static MediaFile NewMediaFile(string filePath)
         {
-            string tempFile = CreateTempFile(filePath); 
+            string tempFile = CreateTempFile(filePath);
             File.Move(filePath, tempFile);
             MediaFile file = new MediaFile(tempFile);
             File.Move(tempFile, filePath);

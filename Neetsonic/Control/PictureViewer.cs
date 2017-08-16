@@ -16,24 +16,15 @@ namespace Neetsonic.Control
     /// </summary>
     public partial class PictureViewer : UserControl
     {
-        private readonly CachePool<string, Image> Cache = new CachePool<string, Image>(20);
-        private readonly List<string> PicFiles = new List<string>();
-        private int _currentIndex = -1;
-
         /// <summary>
         /// 构造
         /// </summary>
         public PictureViewer() => InitializeComponent();
 
-        private int CurrentIndex
-        {
-            get => _currentIndex;
-            set
-            {
-                _currentIndex = value;
-                OnCurrentIndexChanged();
-            }
-        }
+        private readonly CachePool<string, Image> Cache = new CachePool<string, Image>(20);
+        private readonly List<string> PicFiles = new List<string>();
+        private int _currentIndex = -1;
+
         /// <summary>
         /// 缓存大小
         /// </summary>
@@ -43,35 +34,14 @@ namespace Neetsonic.Control
             get => Cache.Size;
             set => Cache.Size = value;
         }
-
-        private async void OnCurrentIndexChanged()
+        private int CurrentIndex
         {
-            void AsyncShowPicture(Image img, string page, string name) => BeginInvoke(new MethodInvoker(() =>
+            get => _currentIndex;
+            set
             {
-                pic.Image = img;
-                lblPage.Text = page;
-                lblName.Text = name;
-            }));
-
-            await Task.Run(() =>
-            {
-                if(-1 == CurrentIndex)
-                {
-                    AsyncShowPicture(null, @"0 / 0", @"当前没有图片");
-                }
-                else
-                {
-                    string file = PicFiles[CurrentIndex];
-                    string fileSHA1 = SHA1Tool.EncryptUnicode(file);
-                    Image img = Cache[fileSHA1]; // 先从缓存读取，如果缓存没有，则写入缓存
-                    if(null == img)
-                    {
-                        img = FileTool.ReadImageFile(file);
-                        Cache.Add(fileSHA1, img);
-                    }
-                    AsyncShowPicture(img, string.Format($@"{CurrentIndex + 1} / {PicFiles.Count}"), Path.GetFileName(file));
-                }
-            });
+                _currentIndex = value;
+                OnCurrentIndexChanged();
+            }
         }
 
         /// <summary>
@@ -103,6 +73,35 @@ namespace Neetsonic.Control
         {
             Clear();
             AddPicFiles(files);
+        }
+        private async void OnCurrentIndexChanged()
+        {
+            void AsyncShowPicture(Image img, string page, string name) => BeginInvoke(new MethodInvoker(() =>
+            {
+                pic.Image = img;
+                lblPage.Text = page;
+                lblName.Text = name;
+            }));
+
+            await Task.Run(() =>
+            {
+                if(-1 == CurrentIndex)
+                {
+                    AsyncShowPicture(null, @"0 / 0", @"当前没有图片");
+                }
+                else
+                {
+                    string file = PicFiles[CurrentIndex];
+                    string fileSHA1 = SHA1Tool.EncryptUnicode(file);
+                    Image img = Cache[fileSHA1]; // 先从缓存读取，如果缓存没有，则写入缓存
+                    if(img is null)
+                    {
+                        img = FileTool.ReadImageFile(file);
+                        Cache.Add(fileSHA1, img);
+                    }
+                    AsyncShowPicture(img, string.Format($@"{CurrentIndex + 1} / {PicFiles.Count}"), Path.GetFileName(file));
+                }
+            });
         }
 
         private void Pic_MouseMove(object sender, MouseEventArgs e) => pic.Cursor = e.X > pic.Width >> 1 ? Cursors.PanEast : Cursors.PanWest;

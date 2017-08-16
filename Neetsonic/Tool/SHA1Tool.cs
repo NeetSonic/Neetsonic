@@ -27,7 +27,6 @@ namespace Neetsonic.Tool
                 }
             }
         }
-
         /// <summary>
         /// 输出指定UNICODE字符串的SHA1校验码
         /// </summary>

@@ -15,9 +15,6 @@ namespace Neetsonic.Tool
         /// </summary>
         /// <param name="order">SortOrder对象</param>
         /// <returns>等价的ListSortDirection对象</returns>
-        public static ListSortDirection SortOrderToListSortDirection(SortOrder order)
-        {
-            return order == SortOrder.Descending ? ListSortDirection.Descending : ListSortDirection.Ascending;
-        }
+        public static ListSortDirection SortOrderToListSortDirection(SortOrder order) => order == SortOrder.Descending ? ListSortDirection.Descending : ListSortDirection.Ascending;
     }
 }

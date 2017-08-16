@@ -16,20 +16,14 @@ namespace Neetsonic.Tool
         /// <param name="files">文件路径集合</param>
         public static void DeleteFiles(IEnumerable<string> files)
         {
-            if(null == files) return;
-            foreach(string file in files)
-            {
-                File.Delete(file);
-            }
+            if(files is null) return;
+            foreach(string file in files) File.Delete(file);
         }
         /// <summary>
         /// 打开文件夹
         /// </summary>
         /// <param name="dir">文件夹路径</param>
-        public static void OpenDirectory(string dir)
-        {
-            Process.Start(@"Explorer", dir);
-        }
+        public static void OpenDirectory(string dir) => Process.Start(@"Explorer", dir);
         /// <summary>
         /// 创建文件，并写入文本
         /// </summary>

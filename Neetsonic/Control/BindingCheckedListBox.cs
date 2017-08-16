@@ -14,10 +14,6 @@ namespace Neetsonic.Control
     public partial class BindingCheckedListBox<T> : CheckedListBox
     {
         /// <summary>
-        /// 绑定的数据列表
-        /// </summary>
-        private BindingList<T> _dataList;
-        /// <summary>
         /// 构造
         /// </summary>
         protected BindingCheckedListBox()
@@ -25,6 +21,11 @@ namespace Neetsonic.Control
             InitializeComponent();
             Init();
         }
+
+        /// <summary>
+        /// 绑定的数据列表
+        /// </summary>
+        private BindingList<T> _dataList;
 
         /// <summary>
         /// 数据源列表
@@ -36,10 +37,7 @@ namespace Neetsonic.Control
             {
                 // 记录之前的勾选项和选中项
                 List<T> checkedItems = new List<T>();
-                if(CheckedItems.Count > 0)
-                {
-                    checkedItems.AddRange(CheckedItems.Cast<T>());
-                }
+                if(CheckedItems.Count > 0)checkedItems.AddRange(CheckedItems.Cast<T>());
                 T selectedItem = (T)SelectedItem;
 
                 // 更改绑定数据
@@ -48,7 +46,7 @@ namespace Neetsonic.Control
                 DataSource = _dataList;
 
                 // 设置显示和值
-                if(null == _dataList) return;
+                if(_dataList is null) return;
                 DisplayMember = DisplayMemberName;
                 ValueMember = ValueMemberName;
 
@@ -56,10 +54,8 @@ namespace Neetsonic.Control
                 for(int idx = 0; idx < DataList.Count; idx++)
                 {
                     T currItem = DataList[idx];
-                    if(checkedItems.Any(item => IsTheSameItem(currItem, item)))
-                        SetItemChecked(idx, true);
-                    if(null != selectedItem && IsTheSameItem(currItem, selectedItem))
-                        SetSelected(idx, true);
+                    if(checkedItems.Any(item => IsTheSameItem(currItem, item)))SetItemChecked(idx, true);
+                    if(null != selectedItem && IsTheSameItem(currItem, selectedItem))SetSelected(idx, true);
                 }
             }
         }
@@ -80,22 +76,6 @@ namespace Neetsonic.Control
             for(int idx = 0; idx < Items.Count; idx++) SetItemChecked(idx, true);
         }
         /// <summary>
-        /// 初始化设置
-        /// </summary>
-        private void Init()
-        {
-            CheckOnClick = true;
-            HorizontalScrollbar = true;
-            DataList = null;
-        }
-        /// <summary>
-        /// 判断两个项是否是同样的，用于重载绑定数据后勾选之前以前勾选中的项
-        /// </summary>
-        /// <param name="t1">比较项</param>
-        /// <param name="t2">比较项</param>
-        /// <returns>是否是相同项</returns>
-        protected virtual bool IsTheSameItem(T t1, T t2) => t1.Equals(t2);
-        /// <summary>
         /// 反选
         /// </summary>
         public void ReverseCheck()
@@ -108,6 +88,22 @@ namespace Neetsonic.Control
         public void UncheckAll()
         {
             for(int idx = 0; idx < Items.Count; idx++) SetItemChecked(idx, false);
+        }
+        /// <summary>
+        /// 判断两个项是否是同样的，用于重载绑定数据后勾选之前以前勾选中的项
+        /// </summary>
+        /// <param name="t1">比较项</param>
+        /// <param name="t2">比较项</param>
+        /// <returns>是否是相同项</returns>
+        protected virtual bool IsTheSameItem(T t1, T t2) => t1.Equals(t2);
+        /// <summary>
+        /// 初始化设置
+        /// </summary>
+        private void Init()
+        {
+            CheckOnClick = true;
+            HorizontalScrollbar = true;
+            DataList = null;
         }
     }
 }

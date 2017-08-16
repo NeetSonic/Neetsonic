@@ -15,53 +15,18 @@ namespace Neetsonic.DataStructure
         /// <summary>
         /// 构造器
         /// </summary>
-        protected BindingList()
-        {
-            Init();
-        }
+        protected BindingList() => Init();
 
         /// <summary>
         /// 构造器
         /// </summary>
         /// <param name="lst">构造列表</param>
-        protected BindingList(IList<T> lst) : base(lst)
-        {
-            Init();
-        }
+        protected BindingList(IList<T> lst) : base(lst) => Init();
 
         /// <summary>
         /// 绑定的控件调用此方法判断列表是否支持排序
         /// </summary>
         protected override bool SupportsSortingCore => true;
-
-        /// <summary>
-        /// 初始化工作
-        /// </summary>
-        private void Init()
-        {
-            AllowNew = true;
-            AddingNew += (sender, args) => args.NewObject = default(T);
-        }
-
-        /// <summary>
-        /// 绑定的控件调用此方法进行列表的排序，之后自动重新绑定回控件
-        /// </summary>
-        /// <param name="prop">要排序的属性</param>
-        /// <param name="direction">排序顺序</param>
-        protected override void ApplySortCore(PropertyDescriptor prop, ListSortDirection direction)
-        {
-            (Items as List<T>)?.Sort((x, y) => Cmp(prop, direction, x, y));
-        }
-
-        /// <summary>
-        /// 用于排序时比较两个元素的方法
-        /// </summary>
-        /// <param name="property">要排序的属性</param>
-        /// <param name="direction">排序顺序</param>
-        /// <param name="x">用于比较的元素</param>
-        /// <param name="y">用于比较的元素</param>
-        /// <returns>比较结果</returns>
-        protected abstract int Cmp(PropertyDescriptor property, ListSortDirection direction, T x, T y);
 
         /// <summary>
         /// 查找第一个符合要求的元素索引
@@ -78,6 +43,29 @@ namespace Neetsonic.DataStructure
                 }
             }
             return -1;
+        }
+        /// <summary>
+        /// 用于排序时比较两个元素的方法
+        /// </summary>
+        /// <param name="property">要排序的属性</param>
+        /// <param name="direction">排序顺序</param>
+        /// <param name="x">用于比较的元素</param>
+        /// <param name="y">用于比较的元素</param>
+        /// <returns>比较结果</returns>
+        protected abstract int Cmp(PropertyDescriptor property, ListSortDirection direction, T x, T y);
+        /// <summary>
+        /// 绑定的控件调用此方法进行列表的排序，之后自动重新绑定回控件
+        /// </summary>
+        /// <param name="prop">要排序的属性</param>
+        /// <param name="direction">排序顺序</param>
+        protected override void ApplySortCore(PropertyDescriptor prop, ListSortDirection direction) => (Items as List<T>)?.Sort((x, y) => Cmp(prop, direction, x, y));
+        /// <summary>
+        /// 初始化工作
+        /// </summary>
+        private void Init()
+        {
+            AllowNew = true;
+            AddingNew += (sender, args) => args.NewObject = default(T);
         }
     }
 }

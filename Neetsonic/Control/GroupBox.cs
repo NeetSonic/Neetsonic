@@ -14,9 +14,6 @@ namespace Neetsonic.Control
     /// </summary>
     public partial class GroupBox : System.Windows.Forms.GroupBox
     {
-        private Color _borderColor = Color.Black;
-
-        private Color _textColor = Color.Black;
         /// <summary>
         /// 构造
         /// </summary>
@@ -24,6 +21,9 @@ namespace Neetsonic.Control
         {
             InitializeComponent();
         }
+
+        private Color _borderColor = Color.Black;
+        private Color _textColor = Color.Black;
 
         /// <summary>
         /// 标题字体颜色
@@ -34,7 +34,6 @@ namespace Neetsonic.Control
             get => _textColor;
             set => _textColor = value;
         }
-
         /// <summary>
         /// 边框颜色
         /// </summary>        

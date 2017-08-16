@@ -12,14 +12,14 @@
             </summary>
             <typeparam name="T">绑定数据类型</typeparam>
         </member>
-        <member name="F:Neetsonic.Control.BindingCheckedListBox`1._dataList">
-            <summary>
-            绑定的数据列表
-            </summary>
-        </member>
         <member name="M:Neetsonic.Control.BindingCheckedListBox`1.#ctor">
             <summary>
             构造
+            </summary>
+        </member>
+        <member name="F:Neetsonic.Control.BindingCheckedListBox`1._dataList">
+            <summary>
+            绑定的数据列表
             </summary>
         </member>
         <member name="P:Neetsonic.Control.BindingCheckedListBox`1.DataList">
@@ -42,9 +42,14 @@
             全选
             </summary>
         </member>
-        <member name="M:Neetsonic.Control.BindingCheckedListBox`1.Init">
+        <member name="M:Neetsonic.Control.BindingCheckedListBox`1.ReverseCheck">
             <summary>
-            初始化设置
+            反选
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Control.BindingCheckedListBox`1.UncheckAll">
+            <summary>
+            全不选
             </summary>
         </member>
         <member name="M:Neetsonic.Control.BindingCheckedListBox`1.IsTheSameItem(`0,`0)">
@@ -55,14 +60,9 @@
             <param name="t2">比较项</param>
             <returns>是否是相同项</returns>
         </member>
-        <member name="M:Neetsonic.Control.BindingCheckedListBox`1.ReverseCheck">
+        <member name="M:Neetsonic.Control.BindingCheckedListBox`1.Init">
             <summary>
-            反选
-            </summary>
-        </member>
-        <member name="M:Neetsonic.Control.BindingCheckedListBox`1.UncheckAll">
-            <summary>
-            全不选
+            初始化设置
             </summary>
         </member>
         <member name="F:Neetsonic.Control.BindingCheckedListBox`1.components">
@@ -119,34 +119,13 @@
             绑定的数据源列表
             </summary>
         </member>
-        <member name="M:Neetsonic.Control.BindingDataGridView`1.Init">
-            <summary>
-            初始化
-            </summary>
-        </member>
-        <member name="M:Neetsonic.Control.BindingDataGridView`1.BindEvent">
-            <summary>
-            绑定事件
-            </summary>
-        </member>
-        <member name="M:Neetsonic.Control.BindingDataGridView`1.IsTheSameItem(`0,`0)">
-            <summary>
-            判断两个项是否是同样的，用于重载绑定数据后勾选之前以前勾选中的项
-            </summary>
-            <param name="t1">比较项1</param>
-            <param name="t2">比较项2</param>
-            <returns>是否是相同项</returns>
-        </member>
-        <member name="M:Neetsonic.Control.BindingDataGridView`1.SetColumnsCore(System.Collections.Generic.IEnumerable{Neetsonic.Control.BindingDataGridViewColumn})">
-            <summary>
-            设置列内部实现
-            </summary>
-            <param name="columns">列信息集合</param>
-        </member>
         <member name="M:Neetsonic.Control.BindingDataGridView`1.Refresh">
             <summary>
             重新按照当前设置排序并刷新显示，且定位到刷新前选中的那一行
             </summary>
+        </member>
+        <member name="M:Neetsonic.Control.BindingDataGridView`1.Sort(System.Windows.Forms.DataGridViewColumn,System.ComponentModel.ListSortDirection)">
+            <inheritdoc />
         </member>
         <member name="M:Neetsonic.Control.BindingDataGridView`1.AddItem(`0)">
             <summary>
@@ -165,24 +144,6 @@
             </summary>
             <param name="idx">项在列表中的索引</param>
         </member>
-        <member name="M:Neetsonic.Control.BindingDataGridView`1.IsDefualtValue(`0)">
-            <summary>
-            检测对象是否为其类型默认值
-            </summary>
-            <param name="t">对象</param>
-            <returns>是否为其类型默认值</returns>
-        </member>
-        <member name="M:Neetsonic.Control.BindingDataGridView`1.Sort(System.Windows.Forms.DataGridViewColumn,System.Windows.Forms.SortOrder)">
-            <summary>
-            按照指定规则排序
-            </summary>
-            <param name="column">排序的列</param>
-            <param name="order">排序顺序</param>
-            <returns>排序是否执行</returns>
-        </member>
-        <member name="M:Neetsonic.Control.BindingDataGridView`1.Sort(System.Windows.Forms.DataGridViewColumn,System.ComponentModel.ListSortDirection)">
-            <inheritdoc />
-        </member>
         <member name="M:Neetsonic.Control.BindingDataGridView`1.UpdateCurrSelectedItem(Neetsonic.Control.BindingDataGridView{`0}.UpdateElementEvent)">
             <summary>
             修改当前选中项
@@ -195,6 +156,45 @@
             </summary>
             <param name="idx">项在列表中的索引</param>
             <param name="update">修改动作</param>
+        </member>
+        <member name="M:Neetsonic.Control.BindingDataGridView`1.IsTheSameItem(`0,`0)">
+            <summary>
+            判断两个项是否是同样的，用于重载绑定数据后勾选之前以前勾选中的项
+            </summary>
+            <param name="t1">比较项1</param>
+            <param name="t2">比较项2</param>
+            <returns>是否是相同项</returns>
+        </member>
+        <member name="M:Neetsonic.Control.BindingDataGridView`1.SetColumnsCore(System.Collections.Generic.IEnumerable{Neetsonic.Control.BindingDataGridViewColumn})">
+            <summary>
+            设置列内部实现
+            </summary>
+            <param name="columns">列信息集合</param>
+        </member>
+        <member name="M:Neetsonic.Control.BindingDataGridView`1.Sort(System.Windows.Forms.DataGridViewColumn,System.Windows.Forms.SortOrder)">
+            <summary>
+            按照指定规则排序
+            </summary>
+            <param name="column">排序的列</param>
+            <param name="order">排序顺序</param>
+            <returns>排序是否执行</returns>
+        </member>
+        <member name="M:Neetsonic.Control.BindingDataGridView`1.IsDefualtValue(`0)">
+            <summary>
+            检测对象是否为其类型默认值
+            </summary>
+            <param name="t">对象</param>
+            <returns>是否为其类型默认值</returns>
+        </member>
+        <member name="M:Neetsonic.Control.BindingDataGridView`1.Init">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Control.BindingDataGridView`1.BindEvent">
+            <summary>
+            绑定事件
+            </summary>
         </member>
         <member name="F:Neetsonic.Control.BindingDataGridView`1.components">
             <summary> 
