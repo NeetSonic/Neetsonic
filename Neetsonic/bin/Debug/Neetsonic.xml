@@ -356,16 +356,16 @@
             构造
             </summary>
         </member>
-        <member name="M:Neetsonic.Control.LogTextBox.Init">
-            <summary>
-            初始化
-            </summary>
-        </member>
         <member name="M:Neetsonic.Control.LogTextBox.WriteLog(System.String)">
             <summary>
             输出一条日志信息，并自动滚屏到最新添加的信息处
             </summary>
             <param name="log">需要输出的信息</param>
+        </member>
+        <member name="M:Neetsonic.Control.LogTextBox.Init">
+            <summary>
+            初始化
+            </summary>
         </member>
         <member name="F:Neetsonic.Control.LogTextBox.components">
             <summary> 
@@ -491,17 +491,12 @@
             绑定的控件调用此方法判断列表是否支持排序
             </summary>
         </member>
-        <member name="M:Neetsonic.DataStructure.BindingList`1.Init">
+        <member name="M:Neetsonic.DataStructure.BindingList`1.FindItemIndex(System.Predicate{`0})">
             <summary>
-            初始化工作
+            查找第一个符合要求的元素索引
             </summary>
-        </member>
-        <member name="M:Neetsonic.DataStructure.BindingList`1.ApplySortCore(System.ComponentModel.PropertyDescriptor,System.ComponentModel.ListSortDirection)">
-            <summary>
-            绑定的控件调用此方法进行列表的排序，之后自动重新绑定回控件
-            </summary>
-            <param name="prop">要排序的属性</param>
-            <param name="direction">排序顺序</param>
+            <param name="match">需要满足的要求</param>
+            <returns>第一个符合要求的元素索引，不存在则返回-1</returns>
         </member>
         <member name="M:Neetsonic.DataStructure.BindingList`1.Cmp(System.ComponentModel.PropertyDescriptor,System.ComponentModel.ListSortDirection,`0,`0)">
             <summary>
@@ -513,12 +508,17 @@
             <param name="y">用于比较的元素</param>
             <returns>比较结果</returns>
         </member>
-        <member name="M:Neetsonic.DataStructure.BindingList`1.FindItemIndex(System.Predicate{`0})">
+        <member name="M:Neetsonic.DataStructure.BindingList`1.ApplySortCore(System.ComponentModel.PropertyDescriptor,System.ComponentModel.ListSortDirection)">
             <summary>
-            查找第一个符合要求的元素索引
+            绑定的控件调用此方法进行列表的排序，之后自动重新绑定回控件
             </summary>
-            <param name="match">需要满足的要求</param>
-            <returns>第一个符合要求的元素索引，不存在则返回-1</returns>
+            <param name="prop">要排序的属性</param>
+            <param name="direction">排序顺序</param>
+        </member>
+        <member name="M:Neetsonic.DataStructure.BindingList`1.Init">
+            <summary>
+            初始化工作
+            </summary>
         </member>
         <member name="T:Neetsonic.DataStructure.CachePool`2">
             <summary>

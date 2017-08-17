@@ -11,6 +11,26 @@ namespace Neetsonic.Tool.Database
     public static class SqlExecutor
     {
         /// <summary>
+        /// 测试数据库连接是否成功
+        /// </summary>
+        /// <param name="connection">数据库连接字符串</param>
+        /// <returns>连接是否成功</returns>
+        public static bool ConnectSucceed(string connection)
+        {
+            try
+            {
+                using(SqlConnection conn = new SqlConnection(connection))
+                {
+                    conn.Open();
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        /// <summary>
         /// 执行不带返回值的Sql语句
         /// </summary>
         /// <param name="connection">数据库连接字符串</param>
@@ -30,29 +50,6 @@ namespace Neetsonic.Tool.Database
                 cmd.ExecuteNonQuery();
             }
         }
-
-        /// <summary>
-        /// 执行单一返回值的Sql语句
-        /// </summary>
-        /// <param name="connection">数据库连接字符串</param>
-        /// <param name="sql">要执行的sql语句</param>
-        /// <param name="parameters">参数集</param>
-        /// <returns>单一返回值</returns>
-        public static object ExecuteScalar(string connection, string sql, SqlParameter[] parameters)
-        {
-            using(SqlConnection conn = new SqlConnection(connection))
-            {
-                conn.Open();
-                SqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = sql;
-                if(null != parameters)
-                {
-                    cmd.Parameters.AddRange(parameters);
-                }
-                return cmd.ExecuteScalar();
-            }
-        }
-
         /// <summary>
         /// 执行带有返回值的Sql语句
         /// </summary>
@@ -79,25 +76,25 @@ namespace Neetsonic.Tool.Database
                 }
             }
         }
-
         /// <summary>
-        /// 测试数据库连接是否成功
+        /// 执行单一返回值的Sql语句
         /// </summary>
         /// <param name="connection">数据库连接字符串</param>
-        /// <returns>连接是否成功</returns>
-        public static bool ConnectSucceed(string connection)
+        /// <param name="sql">要执行的sql语句</param>
+        /// <param name="parameters">参数集</param>
+        /// <returns>单一返回值</returns>
+        public static object ExecuteScalar(string connection, string sql, SqlParameter[] parameters)
         {
-            try
+            using(SqlConnection conn = new SqlConnection(connection))
             {
-                using(SqlConnection conn = new SqlConnection(connection))
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = sql;
+                if(null != parameters)
                 {
-                    conn.Open();
+                    cmd.Parameters.AddRange(parameters);
                 }
-                return true;
-            }
-            catch
-            {
-                return false;
+                return cmd.ExecuteScalar();
             }
         }
     }

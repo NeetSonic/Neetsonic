@@ -32,6 +32,29 @@ namespace Neetsonic.DataStructure
         public TVal this[TKey key] => GetVal(key);
 
         /// <summary>
+        /// 添加新的键值对象
+        /// </summary>
+        /// <param name="key">键</param>
+        /// <param name="val">值</param>
+        public void Add(TKey key, TVal val)
+        {
+            _pool.AddFirst(new KeyValuePair<TKey, TVal>(key, val));
+            while(_pool.Count > Size) // 超出缓存池容量，移除最后一个
+            {
+                // 先释放非托管资源，再移除 
+                IDisposable dis = _pool.Last.Value.Value as IDisposable;
+                if(null != dis)
+                {
+                    dis.Dispose();
+                }
+                _pool.RemoveLast();
+            }
+        }
+        /// <summary>
+        /// 清空缓存池
+        /// </summary>
+        public void Clear() => _pool.Clear();
+        /// <summary>
         /// 根据键，获取值
         /// </summary>
         /// <param name="key">键</param>
@@ -61,28 +84,5 @@ namespace Neetsonic.DataStructure
             _pool.AddFirst(target);
             return target.Value.Value;
         }
-        /// <summary>
-        /// 添加新的键值对象
-        /// </summary>
-        /// <param name="key">键</param>
-        /// <param name="val">值</param>
-        public void Add(TKey key, TVal val)
-        {
-            _pool.AddFirst(new KeyValuePair<TKey, TVal>(key, val));
-            while(_pool.Count > Size) // 超出缓存池容量，移除最后一个
-            {
-                // 先释放非托管资源，再移除 
-                IDisposable dis = _pool.Last.Value.Value as IDisposable;
-                if(null != dis)
-                {
-                    dis.Dispose();
-                }
-                _pool.RemoveLast();
-            }
-        }
-        /// <summary>
-        /// 清空缓存池
-        /// </summary>
-        public void Clear() => _pool.Clear();
     }
 }

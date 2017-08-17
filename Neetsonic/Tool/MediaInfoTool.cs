@@ -12,6 +12,16 @@ namespace Neetsonic.Tool
     public static class MediaInfoTool
     {
         /// <summary>
+        /// 获取视频文件的分辨率
+        /// </summary>
+        /// <param name="videoFilePath">视频文件路径</param>
+        /// <returns>分辨率结构</returns>
+        public static Size GetVideoRes(string videoFilePath)
+        {
+            MediaFile file = NewMediaFile(videoFilePath);
+            return new Size(file.Video[0].Width, file.Video[0].Height);
+        }
+        /// <summary>
         /// 判断文件是否为图片文件
         /// </summary>
         /// <param name="filePath">文件路径</param>
@@ -32,16 +42,6 @@ namespace Neetsonic.Tool
             return 0 < file.Video.Count;
         }
         /// <summary>
-        /// 获取视频文件的分辨率
-        /// </summary>
-        /// <param name="videoFilePath">视频文件路径</param>
-        /// <returns>分辨率结构</returns>
-        public static Size GetVideoRes(string videoFilePath)
-        {
-            MediaFile file = NewMediaFile(videoFilePath);
-            return new Size(file.Video[0].Width, file.Video[0].Height);
-        }
-        /// <summary>
         /// 创建临时文件
         /// </summary>
         /// <param name="filePath">源文件路径</param>
@@ -52,10 +52,7 @@ namespace Neetsonic.Tool
             string dir = Path.GetDirectoryName(filePath);
             string tempPath = Path.Combine(dir, tempName);
             int count = 0;
-            while(File.Exists(tempPath))
-            {
-                tempPath = Path.Combine(dir, string.Format($@"{tempName}{++count}"));
-            }
+            while(File.Exists(tempPath)) tempPath = Path.Combine(dir, string.Format($@"{tempName}{++count}"));
             return tempPath;
         }
         /// <summary>

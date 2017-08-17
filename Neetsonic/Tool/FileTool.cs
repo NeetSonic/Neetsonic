@@ -11,20 +11,6 @@ namespace Neetsonic.Tool
     public static class FileTool
     {
         /// <summary>
-        /// 批量删除文件
-        /// </summary>
-        /// <param name="files">文件路径集合</param>
-        public static void DeleteFiles(IEnumerable<string> files)
-        {
-            if(files is null) return;
-            foreach(string file in files) File.Delete(file);
-        }
-        /// <summary>
-        /// 打开文件夹
-        /// </summary>
-        /// <param name="dir">文件夹路径</param>
-        public static void OpenDirectory(string dir) => Process.Start(@"Explorer", dir);
-        /// <summary>
         /// 创建文件，并写入文本
         /// </summary>
         /// <param name="filePath">文件路径</param>
@@ -38,6 +24,15 @@ namespace Neetsonic.Tool
                     writer.Write(textToWrite);
                 }
             }
+        }
+        /// <summary>
+        /// 批量删除文件
+        /// </summary>
+        /// <param name="files">文件路径集合</param>
+        public static void DeleteFiles(IEnumerable<string> files)
+        {
+            if(files is null) return;
+            foreach(string file in files) File.Delete(file);
         }
         /// <summary>
         /// 打开文件，并读取所有文本
@@ -54,6 +49,11 @@ namespace Neetsonic.Tool
                 }
             }
         }
+        /// <summary>
+        /// 打开文件夹
+        /// </summary>
+        /// <param name="dir">文件夹路径</param>
+        public static void OpenDirectory(string dir) => Process.Start(@"Explorer", dir);
         /// <summary>
         /// 打开一个图片文件到内存对象（不会持续占用文件）
         /// </summary>

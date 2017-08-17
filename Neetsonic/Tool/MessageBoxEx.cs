@@ -10,6 +10,11 @@ namespace Neetsonic.Tool
     public static class MessageBoxEx
     {
         /// <summary>
+        /// 请求确认提示
+        /// </summary>
+        /// <param name="text">提示文本</param>
+        public static DialogResult Confirm(string text) => MessageBox.Show(text, @"请确认", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+        /// <summary>
         /// 错误提示
         /// </summary>
         /// <param name="text">提示文本</param>
@@ -24,10 +29,5 @@ namespace Neetsonic.Tool
         /// </summary>
         /// <param name="text">提示文本</param>
         public static DialogResult Warning(string text) => MessageBox.Show(text, @"警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        /// <summary>
-        /// 请求确认提示
-        /// </summary>
-        /// <param name="text">提示文本</param>
-        public static DialogResult Confirm(string text) => MessageBox.Show(text, @"请确认", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
     }
 }
