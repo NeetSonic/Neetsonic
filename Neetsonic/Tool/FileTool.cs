@@ -66,5 +66,26 @@ namespace Neetsonic.Tool
                 return Image.FromStream(fs);
             }
         }
+        /// <summary>
+        /// 删除整个文件夹（包括只读文件）
+        /// </summary>
+        /// <param name="dir">文件夹路径</param>
+        private static void DeleteDir(string dir)
+        {
+            if(Directory.Exists(dir))
+            {
+                foreach(string childName in Directory.EnumerateFileSystemEntries(dir))
+                {
+                    if(File.Exists(childName))
+                    {
+                        FileInfo fi = new FileInfo(childName);
+                        if(fi.IsReadOnly) fi.IsReadOnly = false;
+                        File.Delete(childName);
+                    }
+                    else DeleteDir(childName);
+                }
+                Directory.Delete(dir, true);
+            }
+        }
     }
 }
