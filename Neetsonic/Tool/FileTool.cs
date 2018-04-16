@@ -67,6 +67,15 @@ namespace Neetsonic.Tool
             }
         }
         /// <summary>
+        /// 重命名文件
+        /// </summary>
+        /// <param name="filePath">文件路径</param>
+        /// <param name="newName">新文件名</param>
+        public static void Rename(string filePath, string newName)
+        {
+            File.Move(filePath, Path.Combine(Path.GetDirectoryName(filePath), newName));
+        }
+        /// <summary>
         /// 删除整个文件夹（包括只读文件）
         /// </summary>
         /// <param name="dir">文件夹路径</param>
