@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace Neetsonic.Tool
+namespace Neetsonic.Tool.Extensions
 {
     /// <summary>
     /// 消息提示框

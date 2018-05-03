@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 
-namespace Neetsonic.Tool
+namespace Neetsonic.Tool.Extensions
 {
     /// <summary>
     /// DataRow扩展

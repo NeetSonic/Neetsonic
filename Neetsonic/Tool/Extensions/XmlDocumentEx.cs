@@ -1,6 +1,6 @@
 ﻿using System.Xml;
 
-namespace Neetsonic.Tool
+namespace Neetsonic.Tool.Extensions
 {
     /// <summary>
     /// XML文档操作扩展

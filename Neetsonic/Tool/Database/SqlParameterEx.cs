@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Neetsonic.Tool
+namespace Neetsonic.Tool.Database
 {
     /// <summary>
     /// SqlParameter扩展方法

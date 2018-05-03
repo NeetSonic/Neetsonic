@@ -1,6 +1,7 @@
 ﻿using System.Configuration;
 using System.IO;
 using System.Xml;
+using Neetsonic.Tool.Extensions;
 
 namespace Neetsonic.Tool
 {
@@ -9,7 +10,7 @@ namespace Neetsonic.Tool
     /// Neetsonic
     /// 2018.5.3
     /// </summary>
-    public sealed class XmlConfigManager
+    public sealed class XmlConfigTool
     {
         private const string RootNodeName = @"Root"; // 根节点名称
 
@@ -17,7 +18,7 @@ namespace Neetsonic.Tool
         /// 构造器
         /// </summary>
         /// <param name="filePath">配置文件路径</param>
-        public XmlConfigManager(string filePath)
+        public XmlConfigTool(string filePath)
         {
             FilePath = filePath;
             if(!File.Exists(FilePath))

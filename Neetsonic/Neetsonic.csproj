@@ -94,14 +94,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tool\Convertor.cs" />
     <Compile Include="Tool\Database\SqlExecutor.cs" />
-    <Compile Include="Tool\DataRowEx.cs" />
+    <Compile Include="Tool\Extensions\DataRowEx.cs" />
     <Compile Include="Tool\FileTool.cs" />
     <Compile Include="Tool\MediaInfoTool.cs" />
-    <Compile Include="Tool\MessageBoxEx.cs" />
+    <Compile Include="Tool\Extensions\MessageBoxEx.cs" />
     <Compile Include="Tool\SHA1Tool.cs" />
     <Compile Include="Tool\Database\SqlParameterEx.cs" />
-    <Compile Include="Tool\XmlConfigManager.cs" />
-    <Compile Include="Tool\XmlDocumentEx.cs" />
+    <Compile Include="Tool\XmlConfigTool.cs" />
+    <Compile Include="Tool\Extensions\XmlDocumentEx.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="x64\MediaInfo.dll">
