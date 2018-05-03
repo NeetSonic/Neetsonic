@@ -90,6 +90,7 @@
     </Compile>
     <Compile Include="DataStructure\BindingList.cs" />
     <Compile Include="DataStructure\CachePool.cs" />
+    <Compile Include="DataStructure\PropertyGridDirectoryItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tool\Convertor.cs" />
     <Compile Include="Tool\Database\SqlExecutor.cs" />
