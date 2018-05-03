@@ -99,7 +99,7 @@
     <Compile Include="Tool\MediaInfoTool.cs" />
     <Compile Include="Tool\MessageBoxEx.cs" />
     <Compile Include="Tool\SHA1Tool.cs" />
-    <Compile Include="Tool\SqlParameterEx.cs" />
+    <Compile Include="Tool\Database\SqlParameterEx.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="x64\MediaInfo.dll">
