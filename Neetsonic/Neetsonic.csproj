@@ -100,6 +100,8 @@
     <Compile Include="Tool\MessageBoxEx.cs" />
     <Compile Include="Tool\SHA1Tool.cs" />
     <Compile Include="Tool\Database\SqlParameterEx.cs" />
+    <Compile Include="Tool\XmlConfigManager.cs" />
+    <Compile Include="Tool\XmlDocumentEx.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="x64\MediaInfo.dll">
