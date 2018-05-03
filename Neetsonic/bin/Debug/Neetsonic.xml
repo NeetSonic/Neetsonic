@@ -566,6 +566,29 @@
             <param name="key">键</param>
             <returns>值，若不存在返回默认值</returns>
         </member>
+        <member name="T:Neetsonic.DataStructure.PropertyGridDirectoryItem">
+            <summary>
+            用于PropertyGrid的可打开目录选择对话框的项目
+            Neetsonic
+            2018.5.3
+            </summary>
+        </member>
+        <member name="M:Neetsonic.DataStructure.PropertyGridDirectoryItem.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            项目的UI类型
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neetsonic.DataStructure.PropertyGridDirectoryItem.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)">
+            <summary>
+            项目的值的修改
+            </summary>
+            <param name="context"></param>
+            <param name="provider"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
         <member name="T:Neetsonic.Tool.Convertor">
             <summary>
             通用转换器
@@ -829,6 +852,64 @@
             </summary>
             <param name="str">源字符串</param>
             <returns>数据库字符串</returns>
+        </member>
+        <member name="T:Neetsonic.Tool.XmlConfigManager">
+            <summary>
+            XML文件类型的配置文件管理器
+            Neetsonic
+            2018.5.3
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Tool.XmlConfigManager.#ctor(System.String)">
+            <summary>
+            构造器
+            </summary>
+            <param name="filePath">配置文件路径</param>
+        </member>
+        <member name="P:Neetsonic.Tool.XmlConfigManager.FilePath">
+            <summary>
+            配置文件路径
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Tool.XmlConfigManager.SaveConfig(System.String,System.String)">
+            <summary>
+            保存配置项目
+            </summary>
+            <param name="elementName">项目名称</param>
+            <param name="value">项目值</param>
+        </member>
+        <member name="M:Neetsonic.Tool.XmlConfigManager.ReadConfig(System.String,System.String)">
+            <summary>
+            读取配置信息文件
+            </summary>
+            <param name="elementName">项目名称</param>
+            <param name="defVal">默认值</param>
+            <returns>项目的值</returns>
+        </member>
+        <member name="T:Neetsonic.Tool.XmlDocumentExtension">
+            <summary>
+            XML文档操作扩展
+            Neetsonic 
+            2018.5.3
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Tool.XmlDocumentExtension.GetElementValue(System.Xml.XmlDocument,System.String,System.String)">
+            <summary>
+            获取第一个匹配的指定名称的元素文本
+            </summary>
+            <param name="doc">xml文档对象</param>
+            <param name="elementName">元素名称</param>
+            <param name="defVal">默认值</param>
+            <returns>找到则返回对应值，否则返回默认值</returns>
+        </member>
+        <member name="M:Neetsonic.Tool.XmlDocumentExtension.CreateSingleElement(System.Xml.XmlDocument,System.String,System.String)">
+            <summary>
+            创建仅带有文本的简单元素节点
+            </summary>
+            <param name="doc">xml文档对象</param>
+            <param name="elementName">元素名称</param>
+            <param name="innerText">元素文本</param>
+            <returns>创建好的元素</returns>
         </member>
     </members>
 </doc>
