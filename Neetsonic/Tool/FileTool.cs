@@ -55,6 +55,11 @@ namespace Neetsonic.Tool
         /// <param name="dir">文件夹路径</param>
         public static void OpenDirectory(string dir) => Process.Start(@"Explorer", dir);
         /// <summary>
+        /// 打开文本文件
+        /// </summary>
+        /// <param name="filePath">文件路径</param>
+        public static void OpenTextFile(string filePath) => Process.Start(@"Notepad", filePath);
+        /// <summary>
         /// 打开一个图片文件到内存对象（不会持续占用文件）
         /// </summary>
         /// <param name="filePath">文件路径</param>
