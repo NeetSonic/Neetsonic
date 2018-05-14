@@ -450,6 +450,12 @@
             高亮文本
             </summary>
         </member>
+        <member name="M:Neetsonic.Control.TextBox.AppendLine(System.String)">
+            <summary>
+            文本末尾添加文本后换行
+            </summary>
+            <param name="txt">要添加的文本</param>
+        </member>
         <member name="F:Neetsonic.Control.TextBox.components">
             <summary> 
             必需的设计器变量。

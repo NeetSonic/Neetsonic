@@ -1,4 +1,6 @@
-﻿namespace Neetsonic.Control
+﻿using System;
+
+namespace Neetsonic.Control
 {
     /// <summary>
     /// 文本框
@@ -21,6 +23,15 @@
         {
             Focus();
             SelectAll();
+        }
+        /// <summary>
+        /// 文本末尾添加文本后换行
+        /// </summary>
+        /// <param name="txt">要添加的文本</param>
+        public void AppendLine(string txt)
+        {
+            AppendText(txt);
+            AppendText(Environment.NewLine);
         }
         private void BindEvents()
         {
