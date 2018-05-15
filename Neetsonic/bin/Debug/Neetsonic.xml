@@ -649,6 +649,44 @@
             <param name="parameters">参数集</param>
             <returns>单一返回值</returns>
         </member>
+        <member name="T:Neetsonic.Tool.Database.SQLiteExecutor">
+            <summary>
+            SQLite数据库执行器
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Tool.Database.SQLiteExecutor.ConnectSucceed(System.String)">
+            <summary>
+            测试数据库连接是否成功
+            </summary>
+            <param name="connection">数据库连接字符串</param>
+            <returns>连接是否成功</returns>
+        </member>
+        <member name="M:Neetsonic.Tool.Database.SQLiteExecutor.ExecuteNonQuery(System.String,System.String,System.Data.SQLite.SQLiteParameter[])">
+            <summary>
+            执行不带返回值的Sql语句
+            </summary>
+            <param name="connection">数据库连接字符串</param>
+            <param name="sql">要执行的sql语句</param>
+            <param name="parameters">参数集</param>
+        </member>
+        <member name="M:Neetsonic.Tool.Database.SQLiteExecutor.ExecuteQuery(System.String,System.String,System.Data.SQLite.SQLiteParameter[])">
+            <summary>
+            执行带有返回值的Sql语句
+            </summary>
+            <param name="connection">数据库连接字符串</param>
+            <param name="sql">要执行的sql语句</param>
+            <param name="parameters">参数集</param>
+            <returns>返回值</returns>
+        </member>
+        <member name="M:Neetsonic.Tool.Database.SQLiteExecutor.ExecuteScalar(System.String,System.String,System.Data.SQLite.SQLiteParameter[])">
+            <summary>
+            执行单一返回值的Sql语句
+            </summary>
+            <param name="connection">数据库连接字符串</param>
+            <param name="sql">要执行的sql语句</param>
+            <param name="parameters">参数集</param>
+            <returns>单一返回值</returns>
+        </member>
         <member name="T:Neetsonic.Tool.Database.SqlParameterEx">
             <summary>
             SqlParameter扩展方法
