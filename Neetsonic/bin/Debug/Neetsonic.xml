@@ -595,6 +595,29 @@
             <param name="value"></param>
             <returns></returns>
         </member>
+        <member name="T:Neetsonic.DataStructure.PropertyGridFileItem">
+            <summary>
+            用于PropertyGrid的可打开文件选择对话框的项目
+            Neetsonic
+            2018.5.15
+            </summary>
+        </member>
+        <member name="M:Neetsonic.DataStructure.PropertyGridFileItem.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)">
+            <summary>
+            项目的值的修改
+            </summary>
+            <param name="context"></param>
+            <param name="provider"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neetsonic.DataStructure.PropertyGridFileItem.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            项目的UI类型
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
         <member name="T:Neetsonic.Tool.Convertor">
             <summary>
             通用转换器
