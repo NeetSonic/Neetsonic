@@ -743,6 +743,22 @@
             <param name="fieldName">字段名</param>
             <returns>字段值</returns>
         </member>
+        <member name="M:Neetsonic.Tool.Extensions.DataRowEx.FieldByte(System.Data.DataRow,System.String)">
+            <summary>
+            获取byte类型字段值
+            </summary>
+            <param name="row">数据行</param>
+            <param name="fieldName">字段名</param>
+            <returns>字段值</returns>
+        </member>
+        <member name="M:Neetsonic.Tool.Extensions.DataRowEx.FieldLong(System.Data.DataRow,System.String)">
+            <summary>
+            获取long类型字段值
+            </summary>
+            <param name="row">数据行</param>
+            <param name="fieldName">字段名</param>
+            <returns>字段值</returns>
+        </member>
         <member name="M:Neetsonic.Tool.Extensions.DataRowEx.FieldShort(System.Data.DataRow,System.String)">
             <summary>
             获取short类型字段值
@@ -754,6 +770,22 @@
         <member name="M:Neetsonic.Tool.Extensions.DataRowEx.FieldString(System.Data.DataRow,System.String)">
             <summary>
             获取string类型字段值
+            </summary>
+            <param name="row">数据行</param>
+            <param name="fieldName">字段名</param>
+            <returns>字段值</returns>
+        </member>
+        <member name="M:Neetsonic.Tool.Extensions.DataRowEx.FieldNullableInt(System.Data.DataRow,System.String)">
+            <summary>
+            获取int?类型字段值
+            </summary>
+            <param name="row">数据行</param>
+            <param name="fieldName">字段名</param>
+            <returns>字段值</returns>
+        </member>
+        <member name="M:Neetsonic.Tool.Extensions.DataRowEx.FieldNullableShort(System.Data.DataRow,System.String)">
+            <summary>
+            获取short?类型字段值
             </summary>
             <param name="row">数据行</param>
             <param name="fieldName">字段名</param>

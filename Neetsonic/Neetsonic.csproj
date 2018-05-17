@@ -119,6 +119,7 @@
     <Compile Include="Tool\Extensions\MessageBoxEx.cs" />
     <Compile Include="Tool\SHA1Tool.cs" />
     <Compile Include="Tool\Database\SqlParameterEx.cs" />
+    <Compile Include="Tool\TimeTool.cs" />
     <Compile Include="Tool\XmlConfigTool.cs" />
     <Compile Include="Tool\Extensions\XmlDocumentEx.cs" />
   </ItemGroup>
