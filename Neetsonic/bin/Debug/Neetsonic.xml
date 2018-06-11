@@ -791,6 +791,19 @@
             <param name="fieldName">字段名</param>
             <returns>字段值</returns>
         </member>
+        <member name="T:Neetsonic.Tool.Extensions.HttpWebRequestEx">
+            <summary>
+            Http请求扩展类
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Tool.Extensions.HttpWebRequestEx.SetHeaderValue(System.Net.HttpWebRequest,System.String,System.String)">
+            <summary>
+            设置标头（针对Connection等无法直接设置的）
+            </summary>
+            <param name="request">请求对象</param>
+            <param name="name">标头名字</param>
+            <param name="value">标头值</param>
+        </member>
         <member name="T:Neetsonic.Tool.Extensions.MessageBoxEx">
             <summary>
             消息提示框
@@ -982,6 +995,33 @@
             <summary>
             SHA1校验码
             </summary>
+        </member>
+        <member name="T:Neetsonic.Tool.TimeTool">
+            <summary>
+            时间工具
+            Neetsonic
+            2018.5.17
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Tool.TimeTool.NowUnixStamp">
+            <summary>
+            返回当前时间戳
+            </summary>
+            <returns>当前时间戳</returns>
+        </member>
+        <member name="M:Neetsonic.Tool.TimeTool.DateTimeToUnixStamp(System.DateTime)">
+            <summary>
+            Datatime类型转Unix时间戳
+            </summary>
+            <param name="time">时间对象</param>
+            <returns>对应的时间戳</returns>
+        </member>
+        <member name="M:Neetsonic.Tool.TimeTool.UnixStampToDateTime(System.Int64)">
+            <summary>
+            Unix时间戳转Datatime类型
+            </summary>
+            <param name="stamp">时间戳</param>
+            <returns>时间对象</returns>
         </member>
         <member name="T:Neetsonic.Tool.XmlConfigTool">
             <summary>

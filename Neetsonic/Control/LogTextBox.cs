@@ -42,7 +42,8 @@ namespace Neetsonic.Control
             AcceptsReturn = true;
             AcceptsTab = true;
             Multiline = true;
-            ScrollBars = ScrollBars.Vertical;
+            ScrollBars = ScrollBars.Both;
+            WordWrap = false;
         }
     }
 }

@@ -49,3 +49,12 @@ D:\_____Workspace_____\Lhy\dev\Neetsonic\Neetsonic\obj\Debug\Neetsonic.csproj.Ge
 D:\_____Workspace_____\Lhy\dev\Neetsonic\Neetsonic\obj\Debug\Neetsonic.dll
 D:\_____Workspace_____\Lhy\dev\Neetsonic\Neetsonic\obj\Debug\Neetsonic.pdb
 D:\_____Workspace_____\Lhy\dev\Neetsonic\Neetsonic\obj\Debug\Neetsonic.csprojResolveAssemblyReference.cache
+E:\Dev\Neetsonic\Neetsonic\bin\Debug\Neetsonic.dll.config
+E:\Dev\Neetsonic\Neetsonic\bin\Debug\EntityFramework.dll
+E:\Dev\Neetsonic\Neetsonic\bin\Debug\EntityFramework.SqlServer.dll
+E:\Dev\Neetsonic\Neetsonic\bin\Debug\System.Data.SQLite.dll
+E:\Dev\Neetsonic\Neetsonic\bin\Debug\System.Data.SQLite.EF6.dll
+E:\Dev\Neetsonic\Neetsonic\bin\Debug\System.Data.SQLite.Linq.dll
+E:\Dev\Neetsonic\Neetsonic\bin\Debug\EntityFramework.xml
+E:\Dev\Neetsonic\Neetsonic\bin\Debug\EntityFramework.SqlServer.xml
+E:\Dev\Neetsonic\Neetsonic\bin\Debug\System.Data.SQLite.xml

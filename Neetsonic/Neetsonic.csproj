@@ -114,6 +114,7 @@
     <Compile Include="Tool\Database\SqlExecutor.cs" />
     <Compile Include="Tool\Database\SQLiteExecutor.cs" />
     <Compile Include="Tool\Extensions\DataRowEx.cs" />
+    <Compile Include="Tool\Extensions\HttpWebRequestEx.cs" />
     <Compile Include="Tool\FileTool.cs" />
     <Compile Include="Tool\MediaInfoTool.cs" />
     <Compile Include="Tool\Extensions\MessageBoxEx.cs" />
