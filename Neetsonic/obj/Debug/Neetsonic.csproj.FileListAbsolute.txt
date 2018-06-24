@@ -19,7 +19,6 @@ E:\Dev\Neetsonic\Neetsonic\bin\Debug\Neetsonic.dll
 E:\Dev\Neetsonic\Neetsonic\bin\Debug\Neetsonic.pdb
 E:\Dev\Neetsonic\Neetsonic\bin\Debug\MediaInfoDotNet.dll
 E:\Dev\Neetsonic\Neetsonic\bin\Debug\MediaInfoDotNet.xml
-E:\Dev\Neetsonic\Neetsonic\obj\Debug\Neetsonic.csprojResolveAssemblyReference.cache
 E:\Dev\Neetsonic\Neetsonic\obj\Debug\Neetsonic.Control.CheckedDateTimePicker.resources
 E:\Dev\Neetsonic\Neetsonic\obj\Debug\Neetsonic.Control.PictureViewer.resources
 E:\Dev\Neetsonic\Neetsonic\obj\Debug\Neetsonic.csproj.GenerateResource.Cache
@@ -58,3 +57,4 @@ E:\Dev\Neetsonic\Neetsonic\bin\Debug\System.Data.SQLite.Linq.dll
 E:\Dev\Neetsonic\Neetsonic\bin\Debug\EntityFramework.xml
 E:\Dev\Neetsonic\Neetsonic\bin\Debug\EntityFramework.SqlServer.xml
 E:\Dev\Neetsonic\Neetsonic\bin\Debug\System.Data.SQLite.xml
+E:\Dev\Neetsonic\Neetsonic\obj\Debug\Neetsonic.csprojResolveAssemblyReference.cache
