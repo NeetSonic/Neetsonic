@@ -84,6 +84,25 @@ namespace Neetsonic.Tool
             return newFilePath;
         }
         /// <summary>
+        /// 将文件名合法化，替换不合法的符号
+        /// </summary>
+        /// <param name="fileName">文件名</param>
+        /// <returns>合法的文件名</returns>
+        public static string LegalizeFileName(string fileName)
+        {
+            fileName = fileName.Replace('/', '／');
+            fileName = fileName.Replace('\\', '＼');
+            fileName = fileName.Replace(':', '：');
+            fileName = fileName.Replace(':', '：');
+            fileName = fileName.Replace('*', '※');
+            fileName = fileName.Replace('?', '？');
+            fileName = fileName.Replace('?', '？');
+            fileName = fileName.Replace('"', '“');
+            fileName = fileName.Replace('<', '《');
+            fileName = fileName.Replace('>', '》');
+            return fileName.Replace('|', '丨');
+        }
+        /// <summary>
         /// 删除整个文件夹（包括只读文件）
         /// </summary>
         /// <param name="dir">文件夹路径</param>
