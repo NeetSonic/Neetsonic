@@ -17,12 +17,19 @@ namespace Neetsonic.Tool
         /// <param name="textToWrite">要写入的文本</param>
         public static void CreateAndWriteText(string filePath, string textToWrite)
         {
-            using(FileStream fs = new FileStream(filePath, FileMode.Create, FileAccess.ReadWrite))
+            FileStream fs = null;
+            try
             {
+                fs = new FileStream(filePath, FileMode.Create, FileAccess.ReadWrite);
                 using(StreamWriter writer = new StreamWriter(fs))
                 {
+                    fs = null;
                     writer.Write(textToWrite);
                 }
+            }
+            finally
+            {
+                fs?.Dispose();
             }
         }
         /// <summary>
@@ -35,18 +42,44 @@ namespace Neetsonic.Tool
             foreach(string file in files) File.Delete(file);
         }
         /// <summary>
+        /// 将文件名合法化，替换不合法的符号
+        /// </summary>
+        /// <param name="fileName">文件名</param>
+        /// <returns>合法的文件名</returns>
+        public static string LegalizeFileName(string fileName)
+        {
+            fileName = fileName.Replace('/', '／');
+            fileName = fileName.Replace('\\', '＼');
+            fileName = fileName.Replace(':', '：');
+            fileName = fileName.Replace(':', '：');
+            fileName = fileName.Replace('*', '※');
+            fileName = fileName.Replace('?', '？');
+            fileName = fileName.Replace('?', '？');
+            fileName = fileName.Replace('"', '“');
+            fileName = fileName.Replace('<', '《');
+            fileName = fileName.Replace('>', '》');
+            return fileName.Replace('|', '丨');
+        }
+        /// <summary>
         /// 打开文件，并读取所有文本
         /// </summary>
         /// <param name="filePath">文件路径</param>
         /// <returns>文件文本</returns>
         public static string OpenAndReadAllText(string filePath)
         {
-            using(FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+            FileStream fs = null;
+            try
             {
+                fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
                 using(StreamReader reader = new StreamReader(fs))
                 {
+                    fs = null;
                     return reader.ReadToEnd();
                 }
+            }
+            finally
+            {
+                fs?.Dispose();
             }
         }
         /// <summary>
@@ -82,25 +115,6 @@ namespace Neetsonic.Tool
             string newFilePath = Path.Combine(Path.GetDirectoryName(filePath), newName);
             File.Move(filePath, newFilePath);
             return newFilePath;
-        }
-        /// <summary>
-        /// 将文件名合法化，替换不合法的符号
-        /// </summary>
-        /// <param name="fileName">文件名</param>
-        /// <returns>合法的文件名</returns>
-        public static string LegalizeFileName(string fileName)
-        {
-            fileName = fileName.Replace('/', '／');
-            fileName = fileName.Replace('\\', '＼');
-            fileName = fileName.Replace(':', '：');
-            fileName = fileName.Replace(':', '：');
-            fileName = fileName.Replace('*', '※');
-            fileName = fileName.Replace('?', '？');
-            fileName = fileName.Replace('?', '？');
-            fileName = fileName.Replace('"', '“');
-            fileName = fileName.Replace('<', '《');
-            fileName = fileName.Replace('>', '》');
-            return fileName.Replace('|', '丨');
         }
         /// <summary>
         /// 删除整个文件夹（包括只读文件）

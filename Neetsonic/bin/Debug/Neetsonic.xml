@@ -672,44 +672,6 @@
             <param name="parameters">参数集</param>
             <returns>单一返回值</returns>
         </member>
-        <member name="T:Neetsonic.Tool.Database.SQLiteExecutor">
-            <summary>
-            SQLite数据库执行器
-            </summary>
-        </member>
-        <member name="M:Neetsonic.Tool.Database.SQLiteExecutor.ConnectSucceed(System.String)">
-            <summary>
-            测试数据库连接是否成功
-            </summary>
-            <param name="connection">数据库连接字符串</param>
-            <returns>连接是否成功</returns>
-        </member>
-        <member name="M:Neetsonic.Tool.Database.SQLiteExecutor.ExecuteNonQuery(System.String,System.String,System.Data.SQLite.SQLiteParameter[])">
-            <summary>
-            执行不带返回值的Sql语句
-            </summary>
-            <param name="connection">数据库连接字符串</param>
-            <param name="sql">要执行的sql语句</param>
-            <param name="parameters">参数集</param>
-        </member>
-        <member name="M:Neetsonic.Tool.Database.SQLiteExecutor.ExecuteQuery(System.String,System.String,System.Data.SQLite.SQLiteParameter[])">
-            <summary>
-            执行带有返回值的Sql语句
-            </summary>
-            <param name="connection">数据库连接字符串</param>
-            <param name="sql">要执行的sql语句</param>
-            <param name="parameters">参数集</param>
-            <returns>返回值</returns>
-        </member>
-        <member name="M:Neetsonic.Tool.Database.SQLiteExecutor.ExecuteScalar(System.String,System.String,System.Data.SQLite.SQLiteParameter[])">
-            <summary>
-            执行单一返回值的Sql语句
-            </summary>
-            <param name="connection">数据库连接字符串</param>
-            <param name="sql">要执行的sql语句</param>
-            <param name="parameters">参数集</param>
-            <returns>单一返回值</returns>
-        </member>
         <member name="T:Neetsonic.Tool.Database.SqlParameterEx">
             <summary>
             SqlParameter扩展方法
@@ -791,6 +753,20 @@
             <param name="fieldName">字段名</param>
             <returns>字段值</returns>
         </member>
+        <member name="T:Neetsonic.Tool.Extensions.DataTableEx">
+            <summary>
+            DataTable扩展类，用于转换成类实体对象
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Tool.Extensions.DataTableEx.ToModel``1(System.Data.DataTable)">
+            <summary>
+            转换成对应的类对象集合
+            </summary>
+            <param name="dataTable">数据库查询结果表</param>
+            <typeparam name="T">目标对象类型</typeparam>
+            <returns>目标对象集合</returns>
+            <exception cref="T:System.Exception">异常</exception>
+        </member>
         <member name="T:Neetsonic.Tool.Extensions.HttpWebRequestEx">
             <summary>
             Http请求扩展类
@@ -803,6 +779,19 @@
             <param name="request">请求对象</param>
             <param name="name">标头名字</param>
             <param name="value">标头值</param>
+        </member>
+        <member name="T:Neetsonic.Tool.Extensions.WebHeaderCollectionEx">
+            <summary>
+            WebHeaderCollection扩展
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Tool.Extensions.WebHeaderCollectionEx.SetHeaderValue(System.Net.WebHeaderCollection,System.String,System.String)">
+            <summary>
+            设置某些特殊值用到的
+            </summary>
+            <param name="header"></param>
+            <param name="name"></param>
+            <param name="value"></param>
         </member>
         <member name="T:Neetsonic.Tool.Extensions.MessageBoxEx">
             <summary>
@@ -878,6 +867,13 @@
             </summary>
             <param name="files">文件路径集合</param>
         </member>
+        <member name="M:Neetsonic.Tool.FileTool.LegalizeFileName(System.String)">
+            <summary>
+            将文件名合法化，替换不合法的符号
+            </summary>
+            <param name="fileName">文件名</param>
+            <returns>合法的文件名</returns>
+        </member>
         <member name="M:Neetsonic.Tool.FileTool.OpenAndReadAllText(System.String)">
             <summary>
             打开文件，并读取所有文本
@@ -911,13 +907,6 @@
             <param name="filePath">文件路径</param>
             <param name="newName">新文件名</param>
             <returns>新的文件路径</returns>
-        </member>
-        <member name="M:Neetsonic.Tool.FileTool.LegalizeFileName(System.String)">
-            <summary>
-            将文件名合法化，替换不合法的符号
-            </summary>
-            <param name="fileName">文件名</param>
-            <returns>合法的文件名</returns>
         </member>
         <member name="M:Neetsonic.Tool.FileTool.DeleteDir(System.String)">
             <summary>
