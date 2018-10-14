@@ -767,6 +767,18 @@
             <returns>目标对象集合</returns>
             <exception cref="T:System.Exception">异常</exception>
         </member>
+        <member name="T:Neetsonic.Tool.Extensions.DateTimeEx">
+            <summary>
+             DateTime扩展类
+            </summary>
+        </member>
+        <member name="M:Neetsonic.Tool.Extensions.DateTimeEx.Utc1970InMillisec(System.DateTime)">
+            <summary>
+            获取从UTC 1970年以来经过的毫秒数
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
         <member name="T:Neetsonic.Tool.Extensions.HttpWebRequestEx">
             <summary>
             Http请求扩展类

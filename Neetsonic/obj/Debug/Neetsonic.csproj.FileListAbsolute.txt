@@ -54,5 +54,3 @@ E:\Dev\Neetsonic\Neetsonic\bin\Debug\EntityFramework.SqlServer.dll
 E:\Dev\Neetsonic\Neetsonic\bin\Debug\EntityFramework.xml
 E:\Dev\Neetsonic\Neetsonic\bin\Debug\EntityFramework.SqlServer.xml
 E:\Dev\Neetsonic\Neetsonic\obj\Debug\Neetsonic.csprojResolveAssemblyReference.cache
-E:\Dev\Neetsonic\Neetsonic\bin\Debug\Neetsonic.dll.CodeAnalysisLog.xml
-E:\Dev\Neetsonic\Neetsonic\bin\Debug\Neetsonic.dll.lastcodeanalysissucceeded

@@ -113,6 +113,7 @@
     <Compile Include="Tool\Database\SqlExecutor.cs" />
     <Compile Include="Tool\Extensions\DataRowEx.cs" />
     <Compile Include="Tool\Extensions\DataTableEx.cs" />
+    <Compile Include="Tool\Extensions\DateTimeEx.cs" />
     <Compile Include="Tool\Extensions\HttpWebRequestEx.cs" />
     <Compile Include="Tool\Extensions\WebHeaderCollectionEx.cs" />
     <Compile Include="Tool\FileTool.cs" />
