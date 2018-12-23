@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Text;
 
 namespace Neetsonic.Tool
 {
@@ -22,6 +23,29 @@ namespace Neetsonic.Tool
             {
                 fs = new FileStream(filePath, FileMode.Create, FileAccess.ReadWrite);
                 using(StreamWriter writer = new StreamWriter(fs))
+                {
+                    fs = null;
+                    writer.Write(textToWrite);
+                }
+            }
+            finally
+            {
+                fs?.Dispose();
+            }
+        }
+        /// <summary>
+        /// 创建文件，并写入文本
+        /// </summary>
+        /// <param name="filePath">文件路径</param>
+        /// <param name="textToWrite">要写入的文本</param>
+        /// <param name="encoding">编码</param>
+        public static void CreateAndWriteText(string filePath, string textToWrite, Encoding encoding)
+        {
+            FileStream fs = null;
+            try
+            {
+                fs = new FileStream(filePath, FileMode.Create, FileAccess.ReadWrite);
+                using(StreamWriter writer = new StreamWriter(fs, encoding))
                 {
                     fs = null;
                     writer.Write(textToWrite);
@@ -83,6 +107,30 @@ namespace Neetsonic.Tool
             }
         }
         /// <summary>
+        /// 打开文件，并读取所有文本
+        /// </summary>
+        /// <param name="filePath">文件路径</param>
+        /// <param name="encoding">编码</param>
+        /// <returns>文件文本</returns>
+        public static string OpenAndReadAllText(string filePath, Encoding encoding)
+        {
+            FileStream fs = null;
+            try
+            {
+                fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+                using(StreamReader reader = new StreamReader(fs, encoding))
+                {
+                    fs = null;
+                    return reader.ReadToEnd();
+                }
+            }
+            finally
+            {
+                fs?.Dispose();
+            }
+        }
+
+        /// <summary>
         /// 打开文件夹
         /// </summary>
         /// <param name="dir">文件夹路径</param>
@@ -120,7 +168,7 @@ namespace Neetsonic.Tool
         /// 删除整个文件夹（包括只读文件）
         /// </summary>
         /// <param name="dir">文件夹路径</param>
-        private static void DeleteDir(string dir)
+        public static void DeleteDir(string dir)
         {
             if(Directory.Exists(dir))
             {
@@ -136,6 +184,15 @@ namespace Neetsonic.Tool
                 }
                 Directory.Delete(dir, true);
             }
+        }
+        /// <summary>
+        /// 清除整个文件夹内容（包括只读文件）
+        /// </summary>
+        /// <param name="dir">文件夹路径</param>
+        public static void CleanDir(string dir)
+        {
+            DeleteDir(dir);
+            Directory.CreateDirectory(dir);
         }
     }
 }

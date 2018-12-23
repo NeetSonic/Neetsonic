@@ -10,10 +10,9 @@ namespace Neetsonic.Tool
     public static class TimeTool
     {
         /// <summary>
-        /// 返回当前时间戳
+        /// 当前Unix时间戳
         /// </summary>
-        /// <returns>当前时间戳</returns>
-        public static long NowUnixStamp()=> DateTimeToUnixStamp(DateTime.Now);
+        public static long NowUnixStamp => DateTimeToUnixStamp(DateTime.Now);
         /// <summary>
         /// Datatime类型转Unix时间戳
         /// </summary>
